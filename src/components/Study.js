@@ -1,9 +1,9 @@
-export default function Button(props) {
+export default function Study(props) {
   return (
     <li>
       <section className="flex items-baseline flex-wrap">
         <a
-          href={props.url}
+          href={props.link}
           className="
             mr-1.5
             font-semibold

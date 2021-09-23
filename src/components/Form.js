@@ -1,7 +1,7 @@
 export default function Form(props) {
   return (
     <form
-      id="new-link-form"
+      id="new-study-form"
       className={`
         -mt-4
         bg-gray-faint
@@ -53,7 +53,7 @@ export default function Form(props) {
       />
       <input
         type="text"
-        placeholder="Your Name or Twitter (optional)"
+        placeholder="Your Name or Twitter handle"
         className="
           placeholder-gray
           focus:outline-none
@@ -81,7 +81,7 @@ export default function Form(props) {
           <button
             onClick={props.handleClick}
             type="button"
-            id="add-new-link"
+            id="add-new-study"
             className="group py-3 pl-3 -ml-3 -my-1.5"
           >
             <span
@@ -105,7 +105,7 @@ export default function Form(props) {
           <button
             onClick={props.handleClick}
             type="button"
-            id="close-new-link-form"
+            id="close-new-study-form"
             className="group py-3 pr-6 -my-1.5"
           >
             <span

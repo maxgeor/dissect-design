@@ -4,14 +4,17 @@ import { useState } from "react";
 function App() {
   const [showingForm, setShowingForm] = useState(false);
   const [showingSuccessMsg, setShowingSuccessMsg] = useState(false);
+  const [isTitleEmpty, setIsTitleEmpty] = useState(false);
+  const [isLinkEmpty, setIsLinkEmpty] = useState(false);
+  const [isNameEmpty, setIsNameEmpty] = useState(false);
   const handleClick = (e) => {
     const el = e.target;
-    if (el.id === "open-new-link-form") {
+    if (el.id === "open-new-study-form") {
       if (showingSuccessMsg) setShowingSuccessMsg(false);
       setShowingForm(true);
-    } else if (el.id === "close-new-link-form") {
+    } else if (el.id === "close-new-study-form") {
       setShowingForm(false);
-    } else if (el.id === "add-new-link") {
+    } else if (el.id === "add-new-study") {
       setShowingForm(false);
       setShowingSuccessMsg(true);
     }
@@ -96,7 +99,7 @@ function App() {
         <button
           onClick={handleClick}
           type="button"
-          id="open-new-link-form"
+          id="open-new-study-form"
           className={`
               border border-gray-lightish
               bg-gray-faint 
