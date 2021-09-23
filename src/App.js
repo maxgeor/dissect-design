@@ -4,7 +4,6 @@ import { useState } from "react";
 function App() {
   const [showingForm, setShowingForm] = useState(false);
   const [showingSuccessMsg, setShowingSuccessMsg] = useState(false);
-  const [numberOfAdds, setNumberOfAdds] = useState(0);
   const handleClick = (e) => {
     const el = e.target;
     if (el.id === "open-new-link-form") {
@@ -15,7 +14,6 @@ function App() {
     } else if (el.id === "add-new-link") {
       setShowingForm(false);
       setShowingSuccessMsg(true);
-      setNumberOfAdds((prevNumber) => prevNumber++);
     }
   };
   return (
@@ -91,9 +89,8 @@ function App() {
           `}
         >
           <p className="text-gray font-medium tracking-tight ">
-            Thanks for sharing{numberOfAdds > 1 && " another one"}! Your case
-            study will be added once it's cleared for bad stuff. Check back in a
-            bit.
+            Thanks for sharing! Your case study will be added once it's cleared
+            for bad stuff. Check back in a bit.
           </p>
         </section>
         <button
