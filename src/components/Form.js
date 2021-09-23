@@ -15,9 +15,11 @@ export default function Form(props) {
       `}
     >
       <input
+        ref={props.formTitleInput}
         type="text"
         placeholder="Paste the title..."
         className="
+          placeholder-gray-light
           mb-6
           outline-none
           text-black

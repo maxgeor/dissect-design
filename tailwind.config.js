@@ -37,6 +37,9 @@ module.exports = {
       boxShadow: {
         inset: "0 -1px 0 0 rgba(0, 0, 0, 0.055)",
       },
+      margin: {
+        4.5: "1.125rem",
+      },
     },
   },
   variants: {

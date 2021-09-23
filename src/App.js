@@ -1,17 +1,28 @@
 import Form from "./components/Form";
-import { useState } from "react";
+import Study from "./components/Study";
+import { useState, useEffect, useRef } from "react";
+import db from "./firebase";
+import { onSnapshot, collection } from "@firebase/firestore";
 
 function App() {
   const [showingForm, setShowingForm] = useState(false);
   const [showingSuccessMsg, setShowingSuccessMsg] = useState(false);
-  const [isTitleEmpty, setIsTitleEmpty] = useState(false);
-  const [isLinkEmpty, setIsLinkEmpty] = useState(false);
-  const [isNameEmpty, setIsNameEmpty] = useState(false);
+  const [studies, setStudies] = useState([]);
+  const [newStudy, setNewStudy] = useState({});
+  const formTitleInput = useRef(null);
+
+  useEffect(() => {
+    onSnapshot(collection(db, "studies"), (snapshot) => {
+      setStudies(snapshot.docs.map((doc) => doc.data()));
+    });
+  });
+
   const handleClick = (e) => {
     const el = e.target;
     if (el.id === "open-new-study-form") {
       if (showingSuccessMsg) setShowingSuccessMsg(false);
       setShowingForm(true);
+      formTitleInput.current.focus();
     } else if (el.id === "close-new-study-form") {
       setShowingForm(false);
     } else if (el.id === "add-new-study") {
@@ -33,6 +44,7 @@ function App() {
       items-center
       justify-center
       mx-6
+      tracking-regular
       antialiased
     "
     >
@@ -67,12 +79,12 @@ function App() {
             <path d="M252.524 295.424C239.877 296.542 231.218 282.401 235.404 270.415C237.294 265.002 240.894 260.323 246.053 256.505C252.158 251.988 260.427 250.767 267.538 252.257C276.959 254.231 283.437 264.093 282.003 273.612C281.019 280.151 276.455 284.442 269.825 289.347C264.433 292.812 258.272 294.915 252.524 295.424Z" />
           </svg>
         </a>
-        <h1 className="text-18 font-bold text-black tracking-wide mb-2 leading-6">
+        <h1 className="text-18 font-bold text-black tracking-wide leading-6 mb-1">
           Product Design Case Studies
         </h1>
-        <p className="text-gray mr-16 sm:mr-28">
-          kfhvkd jnfvkjd fvkndfk vnkdfjnv kdjfn vk jdnfk jvndf kjn v df bdf
-          dfgdfgdf dfgg f fgf fgdfgdfgdgdf ff f f f f f
+        <p className="text-gray mr-16 sm:mr-28 ">
+          I love case studies. Seeing a problem being solved end-to-end is
+          enlightening. Add your favourites!
         </p>
       </header>
 
@@ -91,7 +103,7 @@ function App() {
             ${showingSuccessMsg ? "block" : "hidden"}
           `}
         >
-          <p className="text-gray font-medium tracking-tight ">
+          <p className="text-gray ">
             Thanks for sharing! Your case study will be added once it's cleared
             for bad stuff. Check back in a bit.
           </p>
@@ -115,76 +127,24 @@ function App() {
         >
           {showingSuccessMsg ? "Add another case study" : "Add a case study"}
         </button>
-        <Form showingForm={showingForm} handleClick={handleClick} />
+        <Form
+          showingForm={showingForm}
+          handleClick={handleClick}
+          formTitleInput={formTitleInput}
+        />
 
-        <ul className="mt-6 space-y-3">
-          <li>
-            <section className="flex items-baseline flex-wrap">
-              <a
-                href="yes.html"
-                className="
-                  mr-1.5
-                  font-semibold
-                  text-blue
-                  visited:text-purple
-                  hover:underline
-                  focus:underline
-                "
-              >
-                Yes, you can learn to code
-              </a>
-              <a
-                href="#"
-                className="
-                  text-gray text-13
-                  hover:underline
-                  focus:underline
-                  tracking-tight
-                "
-              >
-                signalvnoise.com
-              </a>
-            </section>
-            <p className="text-gray text-sm tracking-tighter">
-              from
-              <span className="tracking-tight text-13 ml-1">@maxolous</span>
-            </p>
-          </li>
-          <li>
-            <section className="flex items-baseline flex-wrap">
-              <a
-                href="yes.html"
-                className="
-                  mr-1.5
-                  font-semibold
-                  text-blue
-                  visited:text-purple
-                  hover:underline
-                  focus:underline
-                "
-              >
-                Yes, you can learn to code
-              </a>
-              <a
-                href="#"
-                className="
-                  text-gray text-13
-                  hover:underline
-                  focus:underline
-                  tracking-tight
-                "
-              >
-                signalvnoise.com
-              </a>
-            </section>
-            <p className="text-gray text-sm tracking-tighter">
-              from
-              <span className="tracking-tight text-13 ml-1">
-                Max Georgopoulos
-              </span>
-            </p>
-          </li>
-        </ul>
+        <section className="mt-6 space-y-4">
+          {studies.map((study) => (
+            <Study
+              key={study.id}
+              title={study.title}
+              link={study.link}
+              domain={study.domain}
+              adder={study.adder}
+              approved={study.approved}
+            />
+          ))}
+        </section>
       </section>
     </main>
   );
