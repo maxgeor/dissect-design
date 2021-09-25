@@ -2,7 +2,8 @@ import Form from "./components/Form";
 import Study from "./components/Study";
 import { useState, useEffect, useRef } from "react";
 import db from "./firebase";
-import { onSnapshot, collection } from "@firebase/firestore";
+import { onSnapshot, collection, setDoc, doc } from "@firebase/firestore";
+import { BadgeCheckIcon } from "@heroicons/react/solid";
 
 function App() {
   const [showingForm, setShowingForm] = useState(false);
@@ -13,11 +14,15 @@ function App() {
 
   useEffect(() => {
     onSnapshot(collection(db, "studies"), (snapshot) => {
-      setStudies(snapshot.docs.map((doc) => doc.data()));
+      const studiesData = snapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setStudies(studiesData.reverse());
     });
-  });
+  }, [setStudies]);
 
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     const el = e.target;
     if (el.id === "open-new-study-form") {
       if (showingSuccessMsg) setShowingSuccessMsg(false);
@@ -30,6 +35,19 @@ function App() {
       setShowingSuccessMsg(true);
     }
   };
+
+  const handleNew = async () => {
+    const docRef = doc(db, "studies", "hvdkfvkdjbvkjdff");
+    const payload = {
+      title: "yooo",
+      link: "yooo",
+      domain: "yooo.com",
+      adder: "Meee",
+      approved: false,
+    };
+    await setDoc(docRef, payload);
+  };
+
   return (
     <main
       className="
@@ -39,7 +57,7 @@ function App() {
       mt-12
       mb-20
       h-full
-      min-h-100vh
+      min-h-screen
       flex-col
       items-center
       justify-center
@@ -51,7 +69,7 @@ function App() {
       <header className="flex flex-col mb-12">
         <a
           href="index.html"
-          className="p-3 pr-40 -ml-3 -mt-3 mb-3 w-min text-black hover:text-blue"
+          className="p-3 pr-40 -ml-3 -mt-3 mb-2 w-min text-black hover:text-blue"
         >
           <svg
             className="h-6 w-6 fill-current"
@@ -83,29 +101,67 @@ function App() {
           Product Design Case Studies
         </h1>
         <p className="text-gray mr-16 sm:mr-28 ">
-          I love case studies. Seeing a problem being solved end-to-end is
-          enlightening. Add your favourites!
+          I love case studies. Seeing the process of wrangling with a design
+          problem is facinating. Add your favourites!
         </p>
       </header>
 
-      <section>
+      <section className="mb-16">
         <section
           id="successful-submit-text"
-          className={`bg-gray-faint
-            mb-3
-            -mx-1
-            p-3
+          className={`
+          
+            mb-4
             border border-gray-lighter
             rounded-lg
             w-full
-            max-w-sm
-            text-gray
-            ${showingSuccessMsg ? "block" : "hidden"}
+            max-w-md
+            shadow-sm
           `}
         >
-          <p className="text-gray ">
-            Thanks for sharing! Your case study will be added once it's cleared
-            for bad stuff. Check back in a bit.
+          <article className=" p-4 bg-white rounded-t-lg border-b border-gray-lighter border-opacity-80">
+            <p className="flex items-center text-sm font-medium text-yellow-600 mb-2">
+              <BadgeCheckIcon className="fill-current h-4 w-4 mr-1" />
+              <span className="font-semibold">In the screener</span>
+            </p>
+            <section className="flex items-baseline flex-wrap ">
+              <a
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+                className="
+                  mr-1.5
+                  font-semibold
+                  text-blue
+                  visited:text-purple
+                  hover:underline
+                  focus:underline
+                "
+              >
+                My new case study
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+                className="
+                  text-gray text-13
+                  hover:underline
+                  focus:underline
+                  tracking-tight
+                "
+              >
+                maxgee.com
+              </a>
+            </section>
+            <p className=" text-gray text-sm tracking-tighter">
+              from
+              <span className="tracking-tight text-13 ml-1">Phil Neugen</span>
+            </p>
+          </article>
+          <p className="bg-gray-faint p-4 text-gray rounded-b-lg">
+            Thanks for sharing! We'll add it after it's screened for bad stuff.
+            Check back in a bit.
           </p>
         </section>
         <button
@@ -113,15 +169,19 @@ function App() {
           type="button"
           id="open-new-study-form"
           className={`
-              border border-gray-lightish
-              bg-gray-faint 
+              border border-gray-lighter
+              
               hover:bg-gray-lightest
               text-black
               font-medium
-              px-3.5
-              py-1
+              px-4
+              h-10
+              sm:h-9
+              h-min
+              box-border
               -ml-1
               rounded-full
+              shadow-sm
               ${showingForm ? "hidden" : "block"}
               `}
         >
@@ -131,6 +191,7 @@ function App() {
           showingForm={showingForm}
           handleClick={handleClick}
           formTitleInput={formTitleInput}
+          handleNew={handleNew}
         />
 
         <section className="mt-6 space-y-4">
@@ -146,6 +207,9 @@ function App() {
           ))}
         </section>
       </section>
+      <footer className="w-full flex  text-gray-lighter">
+        <a href="#">Login</a>
+      </footer>
     </main>
   );
 }

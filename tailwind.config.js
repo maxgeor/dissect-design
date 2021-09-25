@@ -1,24 +1,27 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   darkMode: false,
   theme: {
     colors: {
+      yellow: colors.yellow,
       "blue-light": "#8382FFa",
       blue: "#3633FF",
       "blue-dark": "#100EE2",
       red: "#E90C59",
-      yellow: "#FEFF00",
       purple: "#7A52FF",
       black: "#01001F",
       white: "#fff",
       "white-blue": "#F0F0FF",
-      gray: "#747380",
-      "gray-faint": "#fdfdfd",
-      "gray-light": "#92929B",
-      "gray-lightish": "#DBDBE7",
-      "gray-lighter": "#EAEAF1",
-      "gray-lightest": "#F4F4F7",
-      gold: "#A4882D",
+
+      gray: "#72727E",
+      "gray-light": "#94949E",
+      // "gray-light": "#91919C",
+      "gray-lighter": "#E1E1E9",
+      "gray-lightest": "#F8F8FD",
+      // "gray-faint": "#FCFCFE",
+      "gray-faint": "#FbFbFc",
     },
     fontSize: {
       xs: ["11px", "16px"],
@@ -35,16 +38,13 @@ module.exports = {
     },
     extend: {
       boxShadow: {
-        inset: "0 -1px 0 0 rgba(0, 0, 0, 0.055)",
-      },
-      margin: {
-        4.5: "1.125rem",
+        inset: "inset 0 1px 0 rgba(0, 0, 0, 0.025)",
       },
     },
   },
   variants: {
     textColor: ["hover", "group-hover", "visited"],
-    backgroundColor: ["hover", "group-hover"],
+    backgroundColor: ["hover", "group-hover", "active"],
     borderColor: ["hover", "group-hover", "focus"],
     scale: ["active"],
   },
