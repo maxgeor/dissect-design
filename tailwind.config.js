@@ -7,21 +7,20 @@ module.exports = {
     colors: {
       yellow: colors.yellow,
       "blue-light": "#8382FFa",
-      blue: "#3633FF",
-      "blue-dark": "#100EE2",
+      blue: "#4246FB",
+      "blue-dark": "#2524E8",
+      "blue-darker": "#100EE2",
       red: "#E90C59",
       purple: "#7A52FF",
       black: "#01001F",
       white: "#fff",
       "white-blue": "#F0F0FF",
-
       gray: "#72727E",
       "gray-light": "#94949E",
-      // "gray-light": "#91919C",
-      "gray-lighter": "#E1E1E9",
-      "gray-lightest": "#F8F8FD",
-      // "gray-faint": "#FCFCFE",
-      "gray-faint": "#FbFbFc",
+      "gray-lighter": "#DAD8E4",
+      "gray-lightest": "#F8F8FA",
+      "gray-faint": "#fafafd",
+      "gray-ghost": "#fefefe",
     },
     fontSize: {
       xs: ["11px", "16px"],
@@ -40,13 +39,17 @@ module.exports = {
       boxShadow: {
         inset: "inset 0 1px 0 rgba(0, 0, 0, 0.025)",
       },
+      height: {
+        30: "7.5rem",
+      },
     },
   },
   variants: {
-    textColor: ["hover", "group-hover", "visited"],
+    textColor: ["hover", "group-hover", "visited", "active"],
     backgroundColor: ["hover", "group-hover", "active"],
     borderColor: ["hover", "group-hover", "focus"],
     scale: ["active"],
+    boxShadow: ["hover", "active"],
   },
   plugins: [],
 };
