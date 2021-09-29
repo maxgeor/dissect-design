@@ -1,7 +1,8 @@
 import { ExclamationCircleIcon } from "@heroicons/react/solid";
 import { Formik } from "formik";
+import Field from "./Field";
 
-export default function Form(props) {
+export default function AddForm(props) {
   const isLinkValid = (link) => {
     try {
       new URL(link);
@@ -29,7 +30,7 @@ export default function Form(props) {
           errors.link =
             "That doesn't look like a link. Try copy & pasting it again";
         } else if (doesLinkExist(values.link)) {
-          errors.link = "We already have that one. Got another?";
+          errors.link = "Someone already added that one. Got another?";
         }
         if (values.adder === "") {
           errors.adder = "Let people know who your are";
@@ -49,24 +50,25 @@ export default function Form(props) {
           onSubmit={handleSubmit}
           id="new-study-form"
           className={
-            "-mt-4.5 border border-gray-lighter rounded-lg w-full max-w-md shadow-sm " +
+            "-mt-4.5 border bg-gray-ghost border-gray-lighter rounded-lg w-full max-w-md shadow-sm " +
             (props.showingForm ? "block" : "hidden")
           }
         >
-          <section className="bg-white rounded-t-lg p-4 border-b border-gray-lighter border-opacity-80">
+          <section className="rounded-t-lg p-4 border-b border-gray-lighter border-opacity-80">
             <input
               onChange={handleChange}
               name="title"
-              ref={props.formTitleInput}
               type="text"
               placeholder="Paste the title..."
               className="
+                bg-gray-ghost
                 placeholder-gray-light
                 text-black
                 font-semibold
                 w-full
                 text-18
                 truncate
+                rounded-md
               "
             />
             <div
@@ -77,79 +79,18 @@ export default function Form(props) {
               <ExclamationCircleIcon className="flex-shrink-0 self-start fill-current text-yellow-600 rounded-full h-4 w-4 mr-1" />
               <p className="text-sm font-semibold mr-7">{errors.title}</p>
             </div>
-
-            <input
-              onChange={handleChange}
-              name="link"
-              placeholder="Link"
-              type="text"
-              className={`
-                px-2.5
-                placeholder-gray
-                border
-                rounded-md
-                w-full
-                text-base
-                sm:text-md
-                mt-4
-                box-border
-                h-9
-                shadow-inset 
-                truncate
-                pr-8
-                bg-gray-ghost
-                ${
-                  errors.link
-                    ? "border-yellow-500"
-                    : "border-gray-lighter border-opacity-80"
-                }
-              `}
+            <Field
+              name={"link"}
+              placeholder={"Link"}
+              handleChange={handleChange}
+              error={errors.link}
             />
-            <div
-              className={`flex items-center text-yellow-600 my-1.5 ml-1 ${
-                errors.link ? "block" : "hidden"
-              }`}
-            >
-              <ExclamationCircleIcon className="flex-shrink-0 self-start fill-current text-yellow-600 rounded-full h-4 w-4 mr-1" />
-              <p className="text-sm font-semibold mr-7">{errors.link}</p>
-            </div>
-            <input
-              onChange={handleChange}
-              name="adder"
-              type="text"
-              placeholder="Your Name or Twitter handle"
-              className={`
-                placeholder-gray
-                px-2.5
-                border 
-                rounded-md
-                w-full
-                text-base
-                sm:text-md
-                box-border
-                h-9
-                shadow-inset
-                mt-2
-                truncate
-                pr-8
-                bg-gray-ghost
-                hover:bg-gray-lightest
-                focus:bg-white
-                ${
-                  errors.adder
-                    ? "border-yellow-500"
-                    : "border-gray-lighter border-opacity-80"
-                }
-              `}
+            <Field
+              name={"adder"}
+              placeholder={"Your Name or Twitter handle"}
+              handleChange={handleChange}
+              error={errors.adder}
             />
-            <div
-              className={`flex items-center text-yellow-600 my-1.5 ml-1 ${
-                errors.adder ? "block" : "hidden"
-              }`}
-            >
-              <ExclamationCircleIcon className="flex-shrink-0 self-start fill-current text-yellow-600 rounded-full h-4 w-4 mr-1" />
-              <p className="text-sm font-semibold mr-7">{errors.adder}</p>
-            </div>
           </section>
           <section className="p-4 rounded-b-lg bg-gray-faint">
             <p className="text-13 ml-0.5 text-gray tracking-tight mb-2.5 -mt-0.5">

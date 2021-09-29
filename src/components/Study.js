@@ -17,19 +17,14 @@ export default function Study(props) {
         >
           {props.title}
         </a>
-        <a
-          href={`https://${props.domain}`}
-          target="_blank"
-          rel="noreferrer"
+        <p
           className="
             text-gray text-13
-            hover:underline
-            focus:underline
             tracking-tight
           "
         >
           {props.domain}
-        </a>
+        </p>
       </section>
       <p className="text-gray text-sm tracking-tighter">
         from<span className="tracking-tight text-13 ml-1">{props.adder}</span>
