@@ -1,16 +1,16 @@
-import StaticForm from "./components/AddForm";
+import AddForm from "./components/AddForm";
 import Study from "./components/Study";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { db, auth } from "./firebase";
 import { onSnapshot, collection, addDoc } from "@firebase/firestore";
 import { BadgeCheckIcon } from "@heroicons/react/solid";
+import Button from "./components/Button";
 
 function App() {
   const [showingForm, setShowingForm] = useState(false);
   const [showingSuccessMsg, setShowingSuccessMsg] = useState(false);
   const [studies, setStudies] = useState([]);
   const [newStudy, setNewStudy] = useState({});
-  const titleInput = useRef(null);
 
   useEffect(() => {
     onSnapshot(collection(db, "studies"), (snapshot) => {
@@ -145,30 +145,19 @@ function App() {
             for bad stuff. Check back in a bit.
           </p>
         </article>
-        <button
-          onClick={handleClick}
-          type="button"
-          id="open-new-study-form"
-          className={`
-              border border-gray-lighter
-              hover:bg-gray-lightest
-              bg-white
-              text-black
-              font-medium
-              px-4
-              h-9
-              h-min
-              box-border
-              -ml-1
-              rounded-full
-              hover:shadow-sm
-              active:shadow-none
-              ${showingForm ? "hidden" : "block"}
-              `}
-        >
-          {showingSuccessMsg ? "Add another case study" : "Add a case study"}
-        </button>
-        <StaticForm
+
+        <div className={`-ml-1 ${showingForm ? "hidden" : "block"}`}>
+          <Button
+            handleClick={handleClick}
+            id={"open-new-study-form"}
+            type={"button"}
+            isPrimary={false}
+            text={
+              showingSuccessMsg ? "Add another case study" : "Add a case study"
+            }
+          />
+        </div>
+        <AddForm
           showingForm={showingForm}
           handleClick={handleClick}
           addStudy={addStudy}

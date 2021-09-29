@@ -1,24 +1,27 @@
 export default function Button(props) {
   return (
     <button
-      type="button"
-      id="open-new-link-form"
-      className="
-        pointer-events-none
+      onClick={props.handleClick}
+      type={props.type}
+      id={props.id}
+      className={`
         border 
         font-medium
-        px-3.5
-        py-1.5
-        -ml-1
+        px-4
+        h-9
+        h-min
+        box-border
         rounded-full
-        border-gray-lighter
-        bg-gray-faint
-        hover:bg-gray-lightest
-        text-black
-        
-    "
+        hover:shadow-sm
+        active:shadow-none
+        ${
+          props.isPrimary
+            ? "border-blue hover:border-blue-dark bg-blue hover:bg-blue-dark active:text-white-blue active:bg-blue-darker text-white"
+            : "border-gray-lighter hover:bg-gray-lightest bg-white text-black"
+        }
+      `}
     >
-      Add
+      {props.text}
     </button>
   );
 }

@@ -15,7 +15,6 @@ export default function Field({ name, placeholder, handleChange, error }) {
                 w-full
                 text-base
                 sm:text-md
-                mt-4
                 box-border
                 h-9
                 truncate
