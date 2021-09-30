@@ -5,19 +5,22 @@ module.exports = {
   darkMode: false,
   theme: {
     colors: {
+      red: colors.rose,
+      green: colors.emerald,
       yellow: colors.yellow,
       "blue-light": "#8382FFa",
       blue: "#4246FB",
       "blue-dark": "#2524E8",
       "blue-darker": "#100EE2",
-      red: "#E90C59",
+      // red: "#E90C59",
       purple: "#7A52FF",
       black: "#01001F",
       white: "#fff",
       "white-blue": "#F0F0FF",
       gray: "#72727E",
       "gray-light": "#94949E",
-      "gray-lighter": "#DAD8E4",
+      // "gray-lighter": "#DAD8E4",
+      "gray-lighter": "#D8D7E2",
       "gray-lightest": "#F8F8FA",
       "gray-faint": "#fafafd",
       "gray-ghost": "#fefefe",
@@ -37,7 +40,7 @@ module.exports = {
     },
     extend: {
       boxShadow: {
-        inset: "inset 0 1px 0 rgba(0, 0, 0, 0.025)",
+        inset: "inset 0 1px 0 rgba(0, 0, 0, 0.03)",
       },
       height: {
         30: "7.5rem",
@@ -50,6 +53,7 @@ module.exports = {
     borderColor: ["hover", "group-hover", "focus"],
     scale: ["active"],
     boxShadow: ["hover", "active"],
+    translate: ["hover", "active"],
   },
   plugins: [],
 };

@@ -1,12 +1,18 @@
 import { ExclamationCircleIcon } from "@heroicons/react/solid";
-export default function Field({ name, placeholder, handleChange, error }) {
+export default function Field({
+  name,
+  type,
+  placeholder,
+  handleChange,
+  error,
+}) {
   return (
     <section>
       <input
         onChange={handleChange}
-        name={`${name}`}
-        placeholder={`${placeholder}`}
-        type="text"
+        name={name}
+        placeholder={placeholder}
+        type={type}
         className={`
                 px-2.5
                 placeholder-gray
@@ -19,6 +25,7 @@ export default function Field({ name, placeholder, handleChange, error }) {
                 h-9
                 truncate
                 pr-8
+                shadow-inset
                 ${
                   error
                     ? "border-yellow-500"

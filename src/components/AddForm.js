@@ -51,30 +51,32 @@ export default function AddForm(props) {
           onSubmit={handleSubmit}
           id="new-study-form"
           className={
-            "-mt-4.5 border bg-gray-ghost border-gray-lighter rounded-lg w-full max-w-md shadow-sm " +
+            "-mt-4.5 bg-gray-faint border border-gray-lighter rounded-lg w-full max-w-md shadow-sm " +
             (props.showingForm ? "block" : "hidden")
           }
         >
-          <section className="rounded-t-lg p-4 border-b border-gray-lighter border-opacity-80">
-            <span className="">
+          <section className="rounded-t-lg p-4">
+            <span>
               <input
                 onChange={handleChange}
                 name="title"
                 type="text"
                 placeholder="Paste the title..."
                 className="
-                bg-gray-ghost
+                pl-0.5
                 placeholder-gray-light
+                bg-gray-faint
                 text-black
                 font-semibold
                 w-full
                 text-18
                 truncate
                 rounded-md
+                mt-1
               "
               />
               <div
-                className={`flex items-center text-yellow-600 my-1.5  ${
+                className={`flex items-center text-yellow-600 mt-0.5 mb-1.5  ${
                   errors.title ? "block" : "hidden"
                 }`}
               >
@@ -82,25 +84,26 @@ export default function AddForm(props) {
                 <p className="text-sm font-semibold mr-7">{errors.title}</p>
               </div>
             </span>
-            <section className="mt-4 space-y-2">
+            <section className="mt-3 space-y-2">
               <Field
                 name={"link"}
                 placeholder={"Link"}
+                type={"text"}
                 handleChange={handleChange}
                 error={errors.link}
               />
               <Field
                 name={"adder"}
                 placeholder={"Your Name or Twitter handle"}
+                type={"text"}
                 handleChange={handleChange}
                 error={errors.adder}
               />
             </section>
           </section>
-          <section className="p-4 rounded-b-lg bg-gray-faint">
-            <p className="text-13 ml-0.5 text-gray tracking-tight mb-2.5 -mt-0.5">
-              Before your case study gets added, we'll{" "}
-              <span className="font-semibold">screen it for bad stuff</span>.
+          <section className="p-4 pt-2 rounded-b-lg bg-gray-faint">
+            <p className="text-13 ml-0.5 text-gray tracking-tight mb-2 ">
+              Before your case study gets added, we'll screen it for bad stuff.
             </p>
             <div className="flex space-x-1.5">
               <Button

@@ -7,7 +7,6 @@ export default function Study(props) {
           target="_blank"
           rel="noreferrer"
           className="
-            mr-1.5
             font-semibold
             text-blue
             visited:text-purple
@@ -16,18 +15,23 @@ export default function Study(props) {
           "
         >
           {props.title}
-        </a>
-        <p
-          className="
+          <span
+            className="
+            ml-1.5
             text-gray text-13
             tracking-tight
+            font-normal
           "
-        >
-          {props.domain}
-        </p>
+          >
+            {props.domain}
+          </span>
+        </a>
       </section>
       <p className="text-gray text-sm tracking-tighter">
-        from<span className="tracking-tight text-13 ml-1">{props.adder}</span>
+        from
+        <span className="tracking-tight text-13 ml-1 truncate">
+          {props.adder}
+        </span>
       </p>
     </article>
   );
