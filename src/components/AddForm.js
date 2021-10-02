@@ -55,16 +55,16 @@ export default function AddForm(props) {
             (props.showingForm ? "block" : "hidden")
           }
         >
-          <section className="rounded-t-lg pt-4 px-4 ">
-            <span className="mx-0.5 mb-2">
+          <section className="rounded-t-lg pt-4 px-4 space-y-2">
+            <div className="mx-0.5">
               <input
                 onChange={handleChange}
                 name="title"
                 type="text"
                 placeholder="Paste the title..."
                 className="
-                  
-                  h-8
+                  mt-1
+                  h-7
                   box-border
                   placeholder-gray-light
                   bg-gray-faint
@@ -75,37 +75,36 @@ export default function AddForm(props) {
                   text-18
                   truncate
                   border-b-2  border-gray-faint focus:border-blue-light
-                  focus:outline-none
+                  outline-none
                   transition-all
+                  duration-100
                 "
               />
               <div
-                className={`flex items-center text-yellow-600 mt-1 ${
+                className={`flex items-center text-yellow-600 mt-1 mb-4 ${
                   errors.title ? "block" : "hidden"
                 }`}
               >
                 <ExclamationCircleIcon className="flex-shrink-0 self-start fill-current text-yellow-600 rounded-full h-4 w-4 mr-1" />
                 <p className="text-sm font-semibold mr-7">{errors.title}</p>
               </div>
-            </span>
-            <section className="space-y-2">
-              <Field
-                name={"link"}
-                placeholder={"Link"}
-                type={"text"}
-                handleChange={handleChange}
-                error={errors.link}
-              />
-              <Field
-                name={"adder"}
-                placeholder={"Your Name or Twitter handle"}
-                type={"text"}
-                handleChange={handleChange}
-                error={errors.adder}
-              />
-            </section>
+            </div>
+            <Field
+              name={"link"}
+              placeholder={"Link"}
+              type={"text"}
+              handleChange={handleChange}
+              error={errors.link}
+            />
+            <Field
+              name={"adder"}
+              placeholder={"Your Name or Twitter handle"}
+              type={"text"}
+              handleChange={handleChange}
+              error={errors.adder}
+            />
           </section>
-          <section className="p-4 mt-4 rounded-b-lg bg-gray-faint">
+          <section className="p-4 pt-2 mt-4 rounded-b-lg bg-gray-faint">
             <p className="text-13 ml-0.5 text-gray tracking-tight mb-2">
               Before your case study gets added, we'll screen it for bad stuff.
             </p>

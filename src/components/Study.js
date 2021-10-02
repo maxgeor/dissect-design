@@ -3,7 +3,7 @@ import AdminButtons from "./AdminButtons";
 export default function Study(props) {
   return (
     <article className="flex justify-between">
-      <section className="h-full w-full self-start mr-7">
+      <section className="h-full">
         <div className="flex items-baseline flex-wrap">
           <a
             href={props.link}
@@ -11,9 +11,8 @@ export default function Study(props) {
             rel="noreferrer"
             className="
             mr-1.5
-            font-semibold
+            font-medium
             text-blue
-            visited:text-purple
             hover:underline
             focus:underline
           "
@@ -32,14 +31,17 @@ export default function Study(props) {
             {props.domain}
           </span>
         </div>
-        <p className="text-gray text-sm tracking-tighter">
+        <p className="text-gray text-sm tracking-tighter truncate flex-shrink min-w-0 flex-1">
           from
-          <span className="tracking-tight text-13 ml-1 truncate">
+          <span className="tracking-tight text-13 ml-1 truncate min-w-0 flex-shrink overflow-hidden">
             {props.adder}
           </span>
         </p>
       </section>
-      <AdminButtons isApproved={props.isApproved} />
+      <AdminButtons
+        inSuccessMsg={props.inSuccessMsg}
+        isApproved={props.isApproved}
+      />
     </article>
   );
 }

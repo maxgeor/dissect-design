@@ -131,7 +131,7 @@ function App() {
               ${showingSuccessMsg ? "block" : "hidden"}
             `}
             >
-              <section className=" p-4 bg-white rounded-t-lg border-b border-gray-lighter border-opacity-70">
+              <section className="p-4 bg-white rounded-t-lg border-b border-gray-lighter border-opacity-70">
                 <p className="-ml-0.5 flex items-center text-sm font-medium text-yellow-600 mb-3">
                   <BadgeCheckIcon className="fill-current h-4 w-4 mr-1" />
                   <span className="font-semibold">In the screener</span>
@@ -141,6 +141,7 @@ function App() {
                   link={newStudy.link}
                   domain={newStudy.domain}
                   adder={newStudy.adder}
+                  inSuccessMsg={true}
                 />
               </section>
               <p className="bg-gray-faint p-4 text-gray rounded-b-lg">
@@ -171,14 +172,12 @@ function App() {
           </section>
 
           <section className="pt-5 mt-2">
-            <section className="shadow-inset p-5 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none sm:rounded-lg ">
-              {}
-
-              <p className="-ml-0.5 my-1 flex items-center text-sm font-bold text-yellow-600">
+            <section className="shadow-inset p-5 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none sm:rounded-lg">
+              <p className="-ml-0.5 flex items-center text-sm font-bold text-gray-light">
                 <ClipboardListIcon className="fill-current h-4 w-4 mr-1" />
-                <span className="font-bold">You've got studies to screen!</span>
+                <span className="font-bold">You've got studies to screen</span>
               </p>
-              <div className="mt-7 space-y-5">
+              <div className="mt-6 space-y-5">
                 {studies
                   .filter((study) => !study.approved)
                   .map((study) => (
@@ -209,10 +208,10 @@ function App() {
             </section>
           </section>
         </section>
-        <footer className="mx-5 mt-5">
+        <footer className="mx-5 mt-7">
           <a
             href="index.html"
-            className="text-13 font-semibold text-gray-lightish"
+            className="text-13 font-medium text-gray-lightish"
           >
             Log In
           </a>

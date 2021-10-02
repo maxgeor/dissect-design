@@ -7,7 +7,7 @@ export default function Field({
   error,
 }) {
   return (
-    <section>
+    <div>
       <input
         onChange={handleChange}
         name={name}
@@ -26,11 +26,12 @@ export default function Field({
           truncate
           pr-8
           shadow-inset
-          focus:outline-none
+          outline-none
           focus:ring-1 focus:ring-blue-light
           focus:ring-inset
           focus:border-blue-light
           transition-all
+          duration-100
           ${error ? "border-yellow-500" : "border-gray-lighter"}
         `}
       />
@@ -42,6 +43,6 @@ export default function Field({
         <ExclamationCircleIcon className="flex-shrink-0 self-start fill-current text-yellow-600 rounded-full h-4 w-4 mr-1" />
         <p className="text-sm font-semibold mr-7">{error}</p>
       </div>
-    </section>
+    </div>
   );
 }
