@@ -14,27 +14,28 @@ export default function Field({
         placeholder={placeholder}
         type={type}
         className={`
-                px-2.5
-                placeholder-gray
-                border
-                rounded-md
-                w-full
-                text-base
-                sm:text-md
-                box-border
-                h-9
-                truncate
-                pr-8
-                shadow-inset
-                ${
-                  error
-                    ? "border-yellow-500"
-                    : "border-gray-lighter border-opacity-80"
-                }
-              `}
+          px-2.5
+          placeholder-gray
+          border
+          rounded-md
+          w-full
+          text-base
+          sm:text-md
+          box-border
+          h-9
+          truncate
+          pr-8
+          shadow-inset
+          focus:outline-none
+          focus:ring-1 focus:ring-blue-light
+          focus:ring-inset
+          focus:border-blue-light
+          transition-all
+          ${error ? "border-yellow-500" : "border-gray-lighter"}
+        `}
       />
       <div
-        className={`flex items-center text-yellow-600 my-1.5 ml-1 ${
+        className={`flex items-center text-yellow-600 mt-2 mb-4 ml-1 ${
           error ? "block" : "hidden"
         }`}
       >

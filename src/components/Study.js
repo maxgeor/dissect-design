@@ -1,38 +1,45 @@
+import AdminButtons from "./AdminButtons";
+
 export default function Study(props) {
   return (
-    <article>
-      <section className="flex items-baseline flex-wrap">
-        <a
-          href={props.link}
-          target="_blank"
-          rel="noreferrer"
-          className="
+    <article className="flex justify-between">
+      <section className="h-full w-full self-start mr-7">
+        <div className="flex items-baseline flex-wrap">
+          <a
+            href={props.link}
+            target="_blank"
+            rel="noreferrer"
+            className="
+            mr-1.5
             font-semibold
             text-blue
             visited:text-purple
             hover:underline
             focus:underline
           "
-        >
-          {props.title}
+          >
+            {props.title}
+          </a>
           <span
             className="
-            ml-1.5
+           
             text-gray text-13
             tracking-tight
             font-normal
+            hover:no-underline
           "
           >
             {props.domain}
           </span>
-        </a>
+        </div>
+        <p className="text-gray text-sm tracking-tighter">
+          from
+          <span className="tracking-tight text-13 ml-1 truncate">
+            {props.adder}
+          </span>
+        </p>
       </section>
-      <p className="text-gray text-sm tracking-tighter">
-        from
-        <span className="tracking-tight text-13 ml-1 truncate">
-          {props.adder}
-        </span>
-      </p>
+      <AdminButtons isApproved={props.isApproved} />
     </article>
   );
 }

@@ -3,7 +3,7 @@ import Study from "../components/Study";
 import { useState, useEffect } from "react";
 import { db, auth } from "../firebase";
 import { onSnapshot, collection, addDoc } from "@firebase/firestore";
-import { BadgeCheckIcon } from "@heroicons/react/solid";
+import { BadgeCheckIcon, ClipboardListIcon } from "@heroicons/react/solid";
 import Button from "../components/Button";
 import Login from "./Login";
 import { AuthProvider } from "../context/AuthContext";
@@ -71,16 +71,14 @@ function App() {
           flex-col
           items-center
           justify-center
-          mx-6
           tracking-regular
           antialiased
         "
       >
-        <Login />
-        <header className="flex flex-col mb-14">
+        <header className="flex flex-col mx-5 pb-5">
           <a
             href="index.html"
-            className="p-3 pr-40 -ml-3 -mt-3 mb-2.5 w-min text-black hover:text-blue"
+            className="p-3 -ml-3 -mt-3 -mb-3 w-min text-black hover:text-blue"
           >
             <svg
               className="h-6 w-6 fill-current"
@@ -108,7 +106,8 @@ function App() {
               <path d="M252.524 295.424C239.877 296.542 231.218 282.401 235.404 270.415C237.294 265.002 240.894 260.323 246.053 256.505C252.158 251.988 260.427 250.767 267.538 252.257C276.959 254.231 283.437 264.093 282.003 273.612C281.019 280.151 276.455 284.442 269.825 289.347C264.433 292.812 258.272 294.915 252.524 295.424Z" />
             </svg>
           </a>
-          <h1 className="text-18 font-bold text-black tracking-wide leading-6 mb-1.5">
+
+          <h1 className="text-18 font-bold text-black tracking-wide leading-7 mt-5 mb-1">
             Product Design Case Studies
           </h1>
           <p className="text-gray mr-16 sm:mr-28 ">
@@ -116,11 +115,11 @@ function App() {
             problem is facinating. Add your favourites!
           </p>
         </header>
-
-        <section className="mb-14">
-          <article
-            id="successful-submit-text"
-            className={`
+        <section className="pt-5 mt-4">
+          <section className="mx-5">
+            <article
+              id="successful-submit-text"
+              className={`
               transition-all
               duration-200
               mb-4
@@ -128,64 +127,95 @@ function App() {
               rounded-lg
               w-full
               max-w-md
-              shadow-sm
+              shadow-outer
               ${showingSuccessMsg ? "block" : "hidden"}
             `}
-          >
-            <section className=" p-4 bg-white rounded-t-lg border-b border-gray-lighter border-opacity-60">
-              <p className="flex items-center text-sm font-medium text-yellow-600 mt-0.5 mb-2.5">
-                <BadgeCheckIcon className="fill-current h-4 w-4 mr-1" />
-                <span className="font-semibold">In the screener</span>
-              </p>
-              <Study
-                title={newStudy.title}
-                link={newStudy.link}
-                domain={newStudy.domain}
-                adder={newStudy.adder}
-              />
-            </section>
-            <p className="bg-gray-faint p-4 text-gray rounded-b-lg">
-              Thanks for sharing! We'll add your case study after it's screened
-              for bad stuff. Check back in a bit.
-            </p>
-          </article>
-
-          <div className={`-ml-1 ${showingForm ? "hidden" : "block"}`}>
-            <Button
-              handleClick={handleClick}
-              id={"open-new-study-form"}
-              type={"button"}
-              isPrimary={false}
-              text={
-                showingSuccessMsg
-                  ? "Add another case study"
-                  : "Add a case study"
-              }
-            />
-          </div>
-          <AddForm
-            showingForm={showingForm}
-            handleClick={handleClick}
-            addStudy={addStudy}
-            studies={studies}
-          />
-
-          <section className="mt-7 space-y-5">
-            {studies
-              .filter((study) => study.approved)
-              .map((study) => (
+            >
+              <section className=" p-4 bg-white rounded-t-lg border-b border-gray-lighter border-opacity-70">
+                <p className="-ml-0.5 flex items-center text-sm font-medium text-yellow-600 mb-3">
+                  <BadgeCheckIcon className="fill-current h-4 w-4 mr-1" />
+                  <span className="font-semibold">In the screener</span>
+                </p>
                 <Study
-                  key={study.id}
-                  title={study.title}
-                  link={study.link}
-                  domain={study.domain}
-                  adder={study.adder}
+                  title={newStudy.title}
+                  link={newStudy.link}
+                  domain={newStudy.domain}
+                  adder={newStudy.adder}
                 />
-              ))}
+              </section>
+              <p className="bg-gray-faint p-4 text-gray rounded-b-lg">
+                Thanks for sharing! We'll add your case study after it's
+                screened for bad stuff. Check back in a bit.
+              </p>
+            </article>
+
+            <div className={`-ml-1 ${showingForm ? "hidden" : "block"}`}>
+              <Button
+                handleClick={handleClick}
+                id={"open-new-study-form"}
+                type={"button"}
+                isPrimary={false}
+                text={
+                  showingSuccessMsg
+                    ? "Add another case study"
+                    : "Add a case study"
+                }
+              />
+            </div>
+            <AddForm
+              showingForm={showingForm}
+              handleClick={handleClick}
+              addStudy={addStudy}
+              studies={studies}
+            />
+          </section>
+
+          <section className="pt-5 mt-2">
+            <section className="shadow-inset p-5 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none sm:rounded-lg ">
+              {}
+
+              <p className="-ml-0.5 my-1 flex items-center text-sm font-bold text-yellow-600">
+                <ClipboardListIcon className="fill-current h-4 w-4 mr-1" />
+                <span className="font-bold">You've got studies to screen!</span>
+              </p>
+              <div className="mt-7 space-y-5">
+                {studies
+                  .filter((study) => !study.approved)
+                  .map((study) => (
+                    <Study
+                      key={study.id}
+                      title={study.title}
+                      link={study.link}
+                      domain={study.domain}
+                      adder={study.adder}
+                      isApproved={false}
+                    />
+                  ))}
+              </div>
+            </section>
+            <section className="m-5 space-y-5">
+              {studies
+                .filter((study) => study.approved)
+                .map((study) => (
+                  <Study
+                    key={study.id}
+                    title={study.title}
+                    link={study.link}
+                    domain={study.domain}
+                    adder={study.adder}
+                    isApproved={true}
+                  />
+                ))}
+            </section>
           </section>
         </section>
-        <footer className="w-full flex  text-gray-lighter">
-          <a href="#">Login</a>
+        <footer className="mx-5 mt-5">
+          <a
+            href="index.html"
+            className="text-13 font-semibold text-gray-lightish"
+          >
+            Log In
+          </a>
         </footer>
       </main>
     </AuthProvider>

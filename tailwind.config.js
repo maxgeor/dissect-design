@@ -4,11 +4,15 @@ module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   darkMode: false,
   theme: {
+    screens: {
+      sm: "425px",
+      md: "640px",
+    },
     colors: {
       red: colors.rose,
       green: colors.emerald,
       yellow: colors.yellow,
-      "blue-light": "#8382FFa",
+      "blue-light": "#9A9CFF",
       blue: "#4246FB",
       "blue-dark": "#2524E8",
       "blue-darker": "#100EE2",
@@ -17,13 +21,12 @@ module.exports = {
       black: "#01001F",
       white: "#fff",
       "white-blue": "#F0F0FF",
-      gray: "#72727E",
-      "gray-light": "#94949E",
-      // "gray-lighter": "#DAD8E4",
-      "gray-lighter": "#D8D7E2",
-      "gray-lightest": "#F8F8FA",
-      "gray-faint": "#fafafd",
-      "gray-ghost": "#fefefe",
+      gray: "#727281",
+      "gray-light": "#91919C",
+      "gray-lightish": "#DEDBE8",
+      "gray-lighter": "#E5E3EC",
+      "gray-faint": "#fafafa",
+      "gray-ghost": "#fcfcfc",
     },
     fontSize: {
       xs: ["11px", "16px"],
@@ -40,7 +43,8 @@ module.exports = {
     },
     extend: {
       boxShadow: {
-        inset: "inset 0 1px 0 rgba(0, 0, 0, 0.03)",
+        inset: "inset 0 1px 0 rgba(0, 0, 0, 0.022)",
+        outer: "0 1px 0 rgba(0, 0, 0, 0.022)",
       },
       height: {
         30: "7.5rem",
@@ -50,7 +54,8 @@ module.exports = {
   variants: {
     textColor: ["hover", "group-hover", "visited", "active"],
     backgroundColor: ["hover", "group-hover", "active"],
-    borderColor: ["hover", "group-hover", "focus"],
+    borderWidth: ["hover", "focus", "active"],
+    borderColor: ["hover", "group-hover", "focus", "active"],
     scale: ["active"],
     boxShadow: ["hover", "active"],
     translate: ["hover", "active"],

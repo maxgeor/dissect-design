@@ -1,4 +1,4 @@
-import { ExclamationCircleIcon } from "@heroicons/react/solid";
+import { ExclamationCircleIcon, XCircleIcon } from "@heroicons/react/solid";
 import { Formik } from "formik";
 import Field from "./Field";
 import Button from "./Button";
@@ -19,7 +19,7 @@ export default function AddForm(props) {
     <Formik
       initialValues={{ title: "", link: "", adder: "" }}
       validateOnChange={false}
-      validateOnBlur={true}
+      validateOnBlur={false}
       validate={(values) => {
         const errors = {};
         if (values.title === "") {
@@ -46,37 +46,41 @@ export default function AddForm(props) {
         }
       }}
     >
-      {({ values, errors, handleChange, handleSubmit }) => (
+      {({ errors, handleChange, handleSubmit }) => (
         <form
           onSubmit={handleSubmit}
           id="new-study-form"
           className={
-            "-mt-4.5 bg-gray-faint border border-gray-lighter rounded-lg w-full max-w-md shadow-sm " +
+            "bg-gray-faint border border-gray-lighter rounded-lg w-full max-w-md shadow-outer transition-all " +
             (props.showingForm ? "block" : "hidden")
           }
         >
-          <section className="rounded-t-lg p-4">
-            <span>
+          <section className="rounded-t-lg pt-4 px-4 ">
+            <span className="mx-0.5 mb-2">
               <input
                 onChange={handleChange}
                 name="title"
                 type="text"
                 placeholder="Paste the title..."
                 className="
-                pl-0.5
-                placeholder-gray-light
-                bg-gray-faint
-                text-black
-                font-semibold
-                w-full
-                text-18
-                truncate
-                rounded-md
-                mt-1
-              "
+                  
+                  h-8
+                  box-border
+                  placeholder-gray-light
+                  bg-gray-faint
+                  text-black
+                  rounded-sm
+                  font-semibold
+                  w-full
+                  text-18
+                  truncate
+                  border-b-2  border-gray-faint focus:border-blue-light
+                  focus:outline-none
+                  transition-all
+                "
               />
               <div
-                className={`flex items-center text-yellow-600 mt-0.5 mb-1.5  ${
+                className={`flex items-center text-yellow-600 mt-1 ${
                   errors.title ? "block" : "hidden"
                 }`}
               >
@@ -84,7 +88,7 @@ export default function AddForm(props) {
                 <p className="text-sm font-semibold mr-7">{errors.title}</p>
               </div>
             </span>
-            <section className="mt-3 space-y-2">
+            <section className="space-y-2">
               <Field
                 name={"link"}
                 placeholder={"Link"}
@@ -101,8 +105,8 @@ export default function AddForm(props) {
               />
             </section>
           </section>
-          <section className="p-4 pt-2 rounded-b-lg bg-gray-faint">
-            <p className="text-13 ml-0.5 text-gray tracking-tight mb-2 ">
+          <section className="p-4 mt-4 rounded-b-lg bg-gray-faint">
+            <p className="text-13 ml-0.5 text-gray tracking-tight mb-2">
               Before your case study gets added, we'll screen it for bad stuff.
             </p>
             <div className="flex space-x-1.5">

@@ -12,10 +12,13 @@ export default function Button(props) {
         h-min
         box-border
         rounded-full
+        shadow-outer
+        active:shadow-none
+        transition-all
         ${
           props.isPrimary
             ? "border-blue hover:border-blue-dark bg-blue hover:bg-blue-dark active:text-white-blue active:bg-blue-darker text-white"
-            : "border-gray-lighter hover:bg-gray-lightest bg-white text-black"
+            : "border-gray-lightish hover:bg-gray-faint bg-white text-black"
         }
       `}
     >
