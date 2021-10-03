@@ -42,7 +42,7 @@ export default function Study(props) {
         </p>
       </section>
       <section
-        className={`text-13 -mr-2.5 sm:mr-0 ml-10 
+        className={`text-13 -mr-2.5 sm:mr-0 ml-12 
           ${props.isLoggedIn ? "block" : "hidden"}
           ${props.inSuccessMsg && "hidden"}`}
       >
