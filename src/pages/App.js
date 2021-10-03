@@ -14,7 +14,7 @@ function App() {
   const [showingSuccessMsg, setShowingSuccessMsg] = useState(false);
   const [studies, setStudies] = useState([]);
   const [newStudy, setNewStudy] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     onSnapshot(collection(db, "studies"), (snapshot) => {
@@ -66,7 +66,7 @@ function App() {
           text-md
           mx-auto
           max-w-xl
-          pt-4
+          pt-5
           pb-20
           h-full
           min-h-screen
@@ -127,13 +127,13 @@ function App() {
             <p className=" text-gray-light text-sm mb-3 italic">
               A collection of product design case studies
             </p>
-            <p className="text-gray mr-16 sm:mr-28 ">
+            <p className="text-gray mr-16 sm:mr-24 ">
               I love case studies. Seeing the process of wrangling with a design
               problem is facinating. If you've got a good one, add it!
             </p>
           </header>
-          <section className="pt-6 mt-3">
-            <section className="mx-6 mb-4">
+          <section className="pt-6 mt-4">
+            <section className="mx-6 mb-3">
               <div className={`-ml-1 ${showingForm ? "hidden" : "block"}`}>
                 <Button
                   handleClick={handleClick}
@@ -156,7 +156,7 @@ function App() {
             </section>
             <section>
               <section
-                className={`shadow-inset px-3 py-4 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none sm:rounded-lg ${
+                className={`hidden shadow-inset px-3 py-4 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none sm:rounded-lg ${
                   isLoggedIn ? "block" : "hidden"
                 }`}
               >
@@ -166,7 +166,7 @@ function App() {
                     People added new case studies today!
                   </span>
                 </p>
-                <div className="pt-3 space-y-2">
+                <div className="pt-4 space-y-2">
                   {studies
                     .filter((study) => !study.approved)
                     .map((study) => (
@@ -183,7 +183,7 @@ function App() {
                     ))}
                 </div>
               </section>
-              <section className="mx-3 py-3 space-y-2">
+              <section className="mx-3 py-4 space-y-2">
                 {studies.map((study) => (
                   <Study
                     key={study.id}
