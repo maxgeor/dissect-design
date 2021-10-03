@@ -1,33 +1,27 @@
 import { FireIcon } from "@heroicons/react/solid";
-import { useRef } from "react";
 
 export default function Study(props) {
-  const link = useRef(null);
   return (
     <article className="flex justify-between py-3 px-6 md:rounded-md md:px-4">
-      <section
-        onClick={() => link.current.click()}
-        className="group h-full cursor-pointer"
+      <a
+        href={props.link}
+        target="_blank"
+        rel="noreferrer"
+        className="group h-full cursor-pointer text-gray-dark visited:text-gray"
       >
         <div className="flex items-baseline flex-wrap">
-          <a
-            ref={link}
-            href={props.link}
-            target="_blank"
-            rel="noreferrer"
+          <p
             className="
             mr-1.5
             font-medium
-            text-gray-dark
             group-hover:text-black
             group-focus:text-black
-            visited:text-gray
             group-hover:underline
             group-focus:underline
           "
           >
             {props.title}
-          </a>
+          </p>
           <span
             className="
             text-gray text-13
@@ -45,7 +39,7 @@ export default function Study(props) {
             {props.adder}
           </span>
         </p>
-      </section>
+      </a>
       <section
         className={`text-13 -mr-2.5 md:mr-0 ml-12 
           ${props.isLoggedIn ? "block" : "hidden"}

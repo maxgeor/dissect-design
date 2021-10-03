@@ -24,7 +24,7 @@ module.exports = {
       white: "#fff",
       "white-blue": "#F0F0FF",
       // "gray-dark": "#20263E",
-      "gray-dark": "#222942",
+      "gray-dark": "#242D47",
       gray: "#677396",
       "gray-light": "#8D90A0",
       "gray-lightish": "#D5D8E1",
@@ -73,6 +73,7 @@ module.exports = {
     scale: ["active"],
     boxShadow: ["hover", "active"],
     translate: ["hover", "active"],
+    textDecoration: ["group-hover", "group-focus"],
   },
   plugins: [],
 };
