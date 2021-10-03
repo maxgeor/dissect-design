@@ -13,7 +13,7 @@ export default function Study(props) {
             className="
             mr-1.5
             font-medium
-            text-blue
+            text-black
             hover:underline
             focus:underline
           "

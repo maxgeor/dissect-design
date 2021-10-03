@@ -45,7 +45,7 @@ module.exports = {
     extend: {
       boxShadow: {
         inset: "inset 0 1px 0 rgba(0, 0, 0, 0.025)",
-        outer: "0 1px 0 rgba(0, 0, 0, 0.025)",
+        outer: "0 1px 0 rgba(0, 0, 0, 0.04)",
       },
       height: {
         30: "7.5rem",

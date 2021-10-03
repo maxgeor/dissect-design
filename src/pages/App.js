@@ -7,6 +7,7 @@ import { BadgeCheckIcon, SparklesIcon } from "@heroicons/react/solid";
 import Button from "../components/Button";
 import Login from "./Login";
 import { AuthProvider } from "../context/AuthContext";
+import { Router, Route, Switch, Link } from "react-router";
 
 function App() {
   const [showingForm, setShowingForm] = useState(false);
