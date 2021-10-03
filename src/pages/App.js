@@ -153,13 +153,13 @@ function App() {
                 studies={studies}
               />
             </section>
-            <section className="">
+            <section className="mt-2 ">
               <section
-                className={`mt-5 shadow-inset px-2 py-3 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none sm:rounded-lg ${
+                className={`mt-7 shadow-inset px-2 py-3 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none sm:rounded-lg ${
                   isLoggedIn ? "block" : "hidden"
                 }`}
               >
-                <p className="px-3 mt-2 mb-1 -ml-0.5 flex items-center text-sm font-bold text-green-500">
+                <p className="px-3 mt-2 mb-2 -ml-0.5 flex items-center text-sm font-bold text-green-500">
                   <SparklesIcon className="fill-current h-4 w-4 mr-1" />
                   <span className="font-bold">
                     People added new case studies today!
@@ -182,7 +182,7 @@ function App() {
                     ))}
                 </div>
               </section>
-              <section className=" mx-2 py-3 space-y-1">
+              <section className="mx-2 py-3 space-y-1">
                 {studies
                   .filter((study) => study.approved)
                   .map((study) => (

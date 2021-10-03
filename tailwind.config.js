@@ -50,6 +50,9 @@ module.exports = {
       height: {
         30: "7.5rem",
       },
+      maxHeight: {
+        4.5: "1.125rem",
+      },
     },
   },
   variants: {
