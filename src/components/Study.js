@@ -1,12 +1,17 @@
 import { FireIcon } from "@heroicons/react/solid";
+import { useRef } from "react";
 
 export default function Study(props) {
-  console.log(props.added_at);
+  const link = useRef(null);
   return (
     <article className="flex justify-between py-3 px-6 md:rounded-md md:px-4">
       <section className="h-full">
-        <div className="flex items-baseline flex-wrap">
+        <div
+          onClick={() => link.current.click()}
+          className="group flex items-baseline flex-wrap cursor-pointer"
+        >
           <a
+            ref={link}
             href={props.link}
             target="_blank"
             rel="noreferrer"
@@ -14,18 +19,17 @@ export default function Study(props) {
             mr-1.5
             font-medium
             text-gray-dark
-            hover:text-black
-            focus:text-black
+            group-hover:text-black
+            group-focus:text-black
             visited:text-gray-light
-            hover:underline
-            focus:underline
+            group-hover:underline
+            group-focus:underline
           "
           >
             {props.title}
           </a>
           <span
             className="
-           
             text-gray text-13
             tracking-tight
             font-normal
