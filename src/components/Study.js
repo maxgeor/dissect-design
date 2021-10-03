@@ -5,11 +5,11 @@ export default function Study(props) {
   const link = useRef(null);
   return (
     <article className="flex justify-between py-3 px-6 md:rounded-md md:px-4">
-      <section className="h-full">
-        <div
-          onClick={() => link.current.click()}
-          className="group flex items-baseline flex-wrap cursor-pointer"
-        >
+      <section
+        onClick={() => link.current.click()}
+        className="group h-full cursor-pointer"
+      >
+        <div className="flex items-baseline flex-wrap">
           <a
             ref={link}
             href={props.link}
