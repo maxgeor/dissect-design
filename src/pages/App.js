@@ -13,7 +13,7 @@ function App() {
   const [showingSuccessMsg, setShowingSuccessMsg] = useState(false);
   const [studies, setStudies] = useState([]);
   const [newStudy, setNewStudy] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     onSnapshot(collection(db, "studies"), (snapshot) => {
@@ -133,42 +133,6 @@ function App() {
           </header>
           <section className="pt-5 mt-4">
             <section className="mx-5">
-              <article
-                id="successful-submit-text"
-                className={`
-              transition-all
-              duration-200
-              mb-4
-              border border-gray-lighter
-              rounded-lg
-              w-full
-              max-w-md
-              shadow-outer
-              ${showingSuccessMsg ? "block" : "hidden"}
-            `}
-              >
-                <section className="p-4 bg-white rounded-t-lg border-b border-gray-lighter border-opacity-70">
-                  <p className="-ml-0.5 flex items-center text-sm font-medium text-yellow-600 mb-3">
-                    <BadgeCheckIcon className="fill-current h-4 w-4 mr-1" />
-                    <span className="font-bold">In the screener</span>
-                  </p>
-                  <Study
-                    title={newStudy.title}
-                    link={newStudy.link}
-                    domain={newStudy.domain}
-                    adder={newStudy.adder}
-                    inSuccessMsg={true}
-                  />
-                </section>
-                <p className="bg-gray-faint p-4 text-gray rounded-b-lg">
-                  Thanks for sharing! We'll add your case study{" "}
-                  <span className="font-medium">
-                    after it's screened for bad stuff
-                  </span>
-                  . Check back in a bit.
-                </p>
-              </article>
-
               <div className={`-ml-1 ${showingForm ? "hidden" : "block"}`}>
                 <Button
                   handleClick={handleClick}
@@ -189,14 +153,13 @@ function App() {
                 studies={studies}
               />
             </section>
-
-            <section className="pt-2">
+            <section className="">
               <section
-                className={`mt-5 shadow-inset p-5 border border-green-200 border-opacity-80  bg-green-50 rounded-none sm:rounded-lg ${
+                className={`mt-5 shadow-inset p-5 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none sm:rounded-lg ${
                   isLoggedIn ? "block" : "hidden"
                 }`}
               >
-                <p className="-ml-0.5 flex items-center text-sm font-bold text-green-600">
+                <p className="-ml-0.5 flex items-center text-sm font-bold text-green-500">
                   <SparklesIcon className="fill-current h-4 w-4 mr-1" />
                   <span className="font-bold">
                     People added new case studies today!
@@ -219,7 +182,7 @@ function App() {
                     ))}
                 </div>
               </section>
-              <section className="m-5 space-y-5">
+              <section className=" mx-2 py-5 space-y-1">
                 {studies
                   .filter((study) => study.approved)
                   .map((study) => (
