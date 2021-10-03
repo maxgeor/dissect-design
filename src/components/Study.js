@@ -21,7 +21,7 @@ export default function Study(props) {
             text-gray-dark
             group-hover:text-black
             group-focus:text-black
-            visited:text-gray-light
+            visited:text-gray
             group-hover:underline
             group-focus:underline
           "
