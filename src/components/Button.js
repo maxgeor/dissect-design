@@ -22,8 +22,8 @@ export default function Button(props) {
         duration-100
         ${
           props.isPrimary
-            ? "border-blue hover:border-blue-dark bg-blue hover:bg-blue-dark hover:text-white-blue text-white"
-            : "border-gray-lightish hover:bg-gray-faint bg-white text-black"
+            ? "border-blue hover:border-blue-dark bg-blue hover:bg-blue-dark focus:bg-blue-dark hover:text-white-blue focus:text-white-blue text-white"
+            : "border-gray-lightish hover:bg-gray-faint focus:bg-gray-faint bg-white text-black"
         }
       `}
     >
