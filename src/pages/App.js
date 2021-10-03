@@ -14,7 +14,7 @@ function App() {
   const [showingSuccessMsg, setShowingSuccessMsg] = useState(false);
   const [studies, setStudies] = useState([]);
   const [newStudy, setNewStudy] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     onSnapshot(collection(db, "studies"), (snapshot) => {
@@ -66,7 +66,7 @@ function App() {
           text-md
           mx-auto
           max-w-xl
-          pt-5
+          pt-10
           pb-20
           h-full
           min-h-screen
@@ -78,7 +78,7 @@ function App() {
         "
       >
         <div className="max-w-xl">
-          <header className="flex flex-col mx-6 py-8">
+          <header className="flex flex-col mx-6 py-6">
             <a
               href="index.html"
               className="p-3 -ml-3.5 -mt-3 -mb-3 w-min text-black hover:text-blue"
@@ -127,13 +127,13 @@ function App() {
             <p className=" text-gray-light text-sm mb-3 italic">
               A collection of product design case studies
             </p>
-            <p className="text-gray mr-12 md:mr-24 ">
+            <p className="text-gray mr-12 md:mr-24 leading-6">
               I love case studies. Seeing the process of wrangling with a design
               problem is facinating. If you've got a good one, add it!
             </p>
           </header>
           <section className="pt-6 mt-4">
-            <section className="mx-6 mb-3">
+            <section className="mx-6 mb-1">
               <div className={`-ml-1 ${showingForm ? "hidden" : "block"}`}>
                 <Button
                   handleClick={handleClick}
