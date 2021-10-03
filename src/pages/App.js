@@ -14,7 +14,7 @@ function App() {
   const [showingSuccessMsg, setShowingSuccessMsg] = useState(false);
   const [studies, setStudies] = useState([]);
   const [newStudy, setNewStudy] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   useEffect(() => {
     onSnapshot(collection(db, "studies"), (snapshot) => {

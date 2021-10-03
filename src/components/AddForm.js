@@ -63,6 +63,7 @@ export default function AddForm(props) {
                 type="text"
                 placeholder="Paste the title..."
                 className="
+                  mt-1
                   my-0.5
                   h-7
                   box-border
