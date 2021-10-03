@@ -106,9 +106,8 @@ export default function AddForm(props) {
             />
           </section>
           <section className="p-4 pt-2 mt-4 rounded-b-lg bg-gray-faint">
-            <p className="text-13 ml-0.5 text-gray tracking-tight mb-3">
-              When you click <span className="font-medium">Add</span>, your case
-              study pop to the top – watch!
+            <p className="text-13 ml-0.5 text-gray tracking-tight mb-2">
+              When you add a new case study, it'll pop to the top – watch!
             </p>
             <div className="flex space-x-1.5">
               <Button

@@ -199,7 +199,7 @@ function App() {
               </section>
             </section>
           </section>
-          <footer className="mx-5 mt-7">
+          <footer className="mx-5 mt-2">
             <a
               href="index.html"
               className="text-13 font-medium text-gray-lightish"
