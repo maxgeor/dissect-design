@@ -14,7 +14,7 @@ function App() {
   const [showingSuccessMsg, setShowingSuccessMsg] = useState(false);
   const [studies, setStudies] = useState([]);
   const [newStudy, setNewStudy] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     onSnapshot(collection(db, "studies"), (snapshot) => {
@@ -66,7 +66,7 @@ function App() {
           text-md
           mx-auto
           max-w-xl
-          pt-12
+          pt-4
           pb-20
           h-full
           min-h-screen
@@ -78,7 +78,7 @@ function App() {
         "
       >
         <div className="max-w-xl">
-          <header className="flex flex-col mx-5 pb-5">
+          <header className="flex flex-col mx-6 py-8">
             <a
               href="index.html"
               className="p-3 -ml-3.5 -mt-3 -mb-3 w-min text-black hover:text-blue"
@@ -132,8 +132,8 @@ function App() {
               problem is facinating. If you've got a good one, add it!
             </p>
           </header>
-          <section className="pt-5 mt-4">
-            <section className="mx-5">
+          <section className="pt-6 mt-3">
+            <section className="mx-6 mb-4">
               <div className={`-ml-1 ${showingForm ? "hidden" : "block"}`}>
                 <Button
                   handleClick={handleClick}
@@ -154,9 +154,9 @@ function App() {
                 studies={studies}
               />
             </section>
-            <section className="mt-2 ">
+            <section>
               <section
-                className={`mt-7 shadow-inset px-2 py-3 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none sm:rounded-lg ${
+                className={`shadow-inset px-3 py-4 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none sm:rounded-lg ${
                   isLoggedIn ? "block" : "hidden"
                 }`}
               >
@@ -166,7 +166,7 @@ function App() {
                     People added new case studies today!
                   </span>
                 </p>
-                <div className="pt-3 space-y-1">
+                <div className="pt-3 space-y-2">
                   {studies
                     .filter((study) => !study.approved)
                     .map((study) => (
@@ -183,24 +183,22 @@ function App() {
                     ))}
                 </div>
               </section>
-              <section className="mx-2 py-3 space-y-1">
-                {studies
-                  .filter((study) => study.approved)
-                  .map((study) => (
-                    <Study
-                      key={study.id}
-                      title={study.title}
-                      link={study.link}
-                      domain={study.domain}
-                      adder={study.adder}
-                      isApproved={true}
-                      isLoggedIn={isLoggedIn}
-                    />
-                  ))}
+              <section className="mx-3 py-3 space-y-2">
+                {studies.map((study) => (
+                  <Study
+                    key={study.id}
+                    title={study.title}
+                    link={study.link}
+                    domain={study.domain}
+                    adder={study.adder}
+                    isApproved={true}
+                    isLoggedIn={isLoggedIn}
+                  />
+                ))}
               </section>
             </section>
           </section>
-          <footer className="mx-5 mt-2">
+          <footer className="mx-6 mt-4">
             <a
               href="index.html"
               className="text-13 font-medium text-gray-lightish"
