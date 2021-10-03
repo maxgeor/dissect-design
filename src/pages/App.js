@@ -13,7 +13,7 @@ function App() {
   const [showingSuccessMsg, setShowingSuccessMsg] = useState(false);
   const [studies, setStudies] = useState([]);
   const [newStudy, setNewStudy] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   useEffect(() => {
     onSnapshot(collection(db, "studies"), (snapshot) => {
@@ -155,17 +155,17 @@ function App() {
             </section>
             <section className="">
               <section
-                className={`mt-5 shadow-inset p-5 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none sm:rounded-lg ${
+                className={`mt-5 shadow-inset px-2 py-3 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none sm:rounded-lg ${
                   isLoggedIn ? "block" : "hidden"
                 }`}
               >
-                <p className="-ml-0.5 flex items-center text-sm font-bold text-green-500">
+                <p className="px-3 mt-2 mb-1 -ml-0.5 flex items-center text-sm font-bold text-green-500">
                   <SparklesIcon className="fill-current h-4 w-4 mr-1" />
                   <span className="font-bold">
                     People added new case studies today!
                   </span>
                 </p>
-                <div className="mt-6 space-y-5">
+                <div className="pt-3 space-y-1">
                   {studies
                     .filter((study) => !study.approved)
                     .map((study) => (
@@ -182,7 +182,7 @@ function App() {
                     ))}
                 </div>
               </section>
-              <section className=" mx-2 py-5 space-y-1">
+              <section className=" mx-2 py-3 space-y-1">
                 {studies
                   .filter((study) => study.approved)
                   .map((study) => (
