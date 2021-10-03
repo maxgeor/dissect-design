@@ -3,7 +3,7 @@ import AdminButtons from "./AdminButtons";
 export default function Study(props) {
   console.log(props.added_at);
   return (
-    <article className="flex justify-between rounded-md px-3 py-2">
+    <article className="flex justify-between rounded px-3 py-2">
       <section className="h-full">
         <div className="flex items-baseline flex-wrap">
           <a
