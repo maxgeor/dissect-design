@@ -1,4 +1,4 @@
-import { ExclamationCircleIcon, XCircleIcon } from "@heroicons/react/solid";
+import { ExclamationCircleIcon } from "@heroicons/react/solid";
 import { Formik } from "formik";
 import Field from "./Field";
 import Button from "./Button";
@@ -31,7 +31,7 @@ export default function AddForm(props) {
           errors.link =
             "That doesn't look like a link. Try copy & pasting it again";
         } else if (doesLinkExist(values.link)) {
-          errors.link = "Someone already added that one. Got another?";
+          errors.link = "We've already got that one. Got another?";
         }
         if (values.adder === "") {
           errors.adder = "Let people know who your are";
@@ -63,7 +63,8 @@ export default function AddForm(props) {
                 type="text"
                 placeholder="Paste the title..."
                 className="
-                  mt-1
+                  mt-1.5
+                  mb-0.5
                   h-7
                   box-border
                   placeholder-gray-light
@@ -81,12 +82,12 @@ export default function AddForm(props) {
                 "
               />
               <div
-                className={`flex items-center text-yellow-600 mt-1 mb-4 ${
+                className={`flex items-center text-red-400 mt-1 mb-4 ${
                   errors.title ? "block" : "hidden"
                 }`}
               >
-                <ExclamationCircleIcon className="flex-shrink-0 self-start fill-current text-yellow-600 rounded-full h-4 w-4 mr-1" />
-                <p className="text-sm font-semibold mr-7">{errors.title}</p>
+                <ExclamationCircleIcon className="flex-shrink-0 self-start fill-current text-red-400 rounded-full h-4 w-4 mr-1" />
+                <p className="text-sm font-bold mr-7">{errors.title}</p>
               </div>
             </div>
             <Field
@@ -105,8 +106,9 @@ export default function AddForm(props) {
             />
           </section>
           <section className="p-4 pt-2 mt-4 rounded-b-lg bg-gray-faint">
-            <p className="text-13 ml-0.5 text-gray tracking-tight mb-2">
-              Before your case study gets added, we'll screen it for bad stuff.
+            <p className="text-13 ml-0.5 text-gray tracking-tight mb-3">
+              When you click <span className="font-medium">Add</span>, your case
+              study pop to the top – watch!
             </p>
             <div className="flex space-x-1.5">
               <Button

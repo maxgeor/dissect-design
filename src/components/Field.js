@@ -32,16 +32,16 @@ export default function Field({
           focus:border-blue-light
           transition-all
           duration-100
-          ${error ? "border-yellow-500" : "border-gray-lighter"}
+          ${error ? "border-red-300" : "border-gray-lighter"}
         `}
       />
       <div
-        className={`flex items-center text-yellow-600 mt-2 mb-4 ml-1 ${
+        className={`flex items-center text-red-400 mt-2 mb-4 ml-1 ${
           error ? "block" : "hidden"
         }`}
       >
-        <ExclamationCircleIcon className="flex-shrink-0 self-start fill-current text-yellow-600 rounded-full h-4 w-4 mr-1" />
-        <p className="text-sm font-semibold mr-7">{error}</p>
+        <ExclamationCircleIcon className="flex-shrink-0 self-start fill-current text-red-400 rounded-full h-4 w-4 mr-1" />
+        <p className="text-sm font-bold mr-7">{error}</p>
       </div>
     </div>
   );

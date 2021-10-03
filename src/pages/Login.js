@@ -2,7 +2,6 @@ import { ExclamationCircleIcon } from "@heroicons/react/solid";
 import { Formik } from "formik";
 import Field from "../components/Field";
 import { useAuth } from "../context/AuthContext";
-import AdminButtons from "../components/AdminButtons";
 
 export default function Login(props) {
   const { login } = useAuth();

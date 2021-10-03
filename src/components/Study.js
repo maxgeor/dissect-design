@@ -1,6 +1,7 @@
 import AdminButtons from "./AdminButtons";
 
 export default function Study(props) {
+  console.log(props.added_at);
   return (
     <article className="flex justify-between">
       <section className="h-full">
@@ -37,10 +38,17 @@ export default function Study(props) {
             {props.adder}
           </span>
         </p>
+        {/* <p className="text-gray text-sm tracking-tighter truncate flex-shrink min-w-0 flex-1">
+          on
+          <span className="tracking-tight text-13 ml-1 truncate min-w-0 flex-shrink overflow-hidden">
+            {props.added_at}
+          </span>
+        </p> */}
       </section>
       <AdminButtons
         inSuccessMsg={props.inSuccessMsg}
         isApproved={props.isApproved}
+        isLoggedIn={props.isLoggedIn}
       />
     </article>
   );
