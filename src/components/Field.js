@@ -20,7 +20,7 @@ export default function Field({
           rounded-md
           w-full
           text-base
-          sm:text-md
+          md:text-md
           box-border
           h-9
           truncate

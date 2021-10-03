@@ -14,7 +14,7 @@ function App() {
   const [showingSuccessMsg, setShowingSuccessMsg] = useState(false);
   const [studies, setStudies] = useState([]);
   const [newStudy, setNewStudy] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   useEffect(() => {
     onSnapshot(collection(db, "studies"), (snapshot) => {
@@ -127,7 +127,7 @@ function App() {
             <p className=" text-gray-light text-sm mb-3 italic">
               A collection of product design case studies
             </p>
-            <p className="text-gray mr-16 sm:mr-24 ">
+            <p className="text-gray mr-16 md:mr-24 ">
               I love case studies. Seeing the process of wrangling with a design
               problem is facinating. If you've got a good one, add it!
             </p>
@@ -156,11 +156,11 @@ function App() {
             </section>
             <section>
               <section
-                className={`hidden shadow-inset px-3 py-4 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none sm:rounded-lg ${
+                className={` mt-8 shadow-inset px-3 py-4 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none md:rounded-lg ${
                   isLoggedIn ? "block" : "hidden"
                 }`}
               >
-                <p className="px-3 mt-2 mb-2 -ml-0.5 flex items-center text-sm font-bold text-green-500">
+                <p className="px-3 mt-2 -ml-0.5 flex items-center text-sm font-bold text-green-500">
                   <SparklesIcon className="fill-current h-4 w-4 mr-1" />
                   <span className="font-bold">
                     People added new case studies today!
