@@ -3,7 +3,7 @@ import { FireIcon } from "@heroicons/react/solid";
 export default function Study(props) {
   console.log(props.added_at);
   return (
-    <article className="flex justify-between rounded px-3 py-2">
+    <article className="flex justify-between py-3 px-6 md:rounded-md md:px-4">
       <section className="h-full">
         <div className="flex items-baseline flex-wrap">
           <a
@@ -14,8 +14,9 @@ export default function Study(props) {
             mr-1.5
             font-medium
             text-gray-dark
-            hover:text-blue
-            focus:text-blue
+            hover:text-black
+            focus:text-black
+            visited:text-gray-light
             hover:underline
             focus:underline
           "

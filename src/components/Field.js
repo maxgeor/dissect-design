@@ -27,9 +27,9 @@ export default function Field({
           pr-8
           shadow-inset
           outline-none
-          focus:ring-1 focus:ring-blue-light
+          focus:ring-1 focus:ring-blue-lighter
           focus:ring-inset
-          focus:border-blue-light
+          focus:border-blue-lighter
           transition-all
           duration-100
           ${error ? "border-red-300" : "border-gray-lighter"}

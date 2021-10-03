@@ -127,7 +127,7 @@ function App() {
             <p className=" text-gray-light text-sm mb-3 italic">
               A collection of product design case studies
             </p>
-            <p className="text-gray mr-16 md:mr-24 ">
+            <p className="text-gray mr-12 md:mr-24 ">
               I love case studies. Seeing the process of wrangling with a design
               problem is facinating. If you've got a good one, add it!
             </p>
@@ -156,17 +156,17 @@ function App() {
             </section>
             <section>
               <section
-                className={` mt-8 shadow-inset px-3 py-4 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none md:rounded-lg ${
+                className={` mt-8 shadow-inset py-4 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none md:rounded-lg ${
                   isLoggedIn ? "block" : "hidden"
                 }`}
               >
-                <p className="px-3 mt-2 -ml-0.5 flex items-center text-sm font-bold text-green-500">
+                <p className="px-6 mt-2 -ml-0.5 flex items-center text-sm font-bold text-green-500">
                   <SparklesIcon className="fill-current h-4 w-4 mr-1" />
                   <span className="font-bold">
                     People added new case studies today!
                   </span>
                 </p>
-                <div className="pt-4 space-y-2">
+                <div className="pt-4 md:mx-2">
                   {studies
                     .filter((study) => !study.approved)
                     .map((study) => (
@@ -183,7 +183,7 @@ function App() {
                     ))}
                 </div>
               </section>
-              <section className="mx-3 py-4 space-y-2">
+              <section className="md:px-2 py-4">
                 {studies.map((study) => (
                   <Study
                     key={study.id}

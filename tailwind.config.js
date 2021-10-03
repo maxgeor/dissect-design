@@ -15,7 +15,8 @@ module.exports = {
       green: colors.emerald,
       // "green-500": "#04A474",
       yellow: colors.yellow,
-      "blue-light": "#7B9DF9",
+      "blue-lighter": "#7B9DF9",
+      "blue-light": "#3166F6",
       blue: "#0A47F2",
       "blue-dark": "#093FD5",
       purple: "#7A52FF",
@@ -46,8 +47,8 @@ module.exports = {
     },
     extend: {
       boxShadow: {
-        inset: "inset 0 1px 0 rgba(0, 0, 0, 0.025)",
-        outer: "0 1px 0 rgba(0, 0, 0, 0.04)",
+        inset: "inset 0 1px 0 rgba(0, 0, 0, 0.03)",
+        outer: "0 1px 0 rgba(0, 0, 0, 0.03)",
       },
       height: {
         30: "7.5rem",
@@ -59,9 +60,9 @@ module.exports = {
   },
   variants: {
     textColor: [
+      "visited",
       "hover",
       "group-hover",
-      "visited",
       "focus",
       "group-focus",
       "active",
