@@ -24,7 +24,6 @@ export default function Field({
           box-border
           h-9
           truncate
-          pr-8
           shadow-inset
           outline-none
           focus:ring-1 focus:ring-blue-lighter

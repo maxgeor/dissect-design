@@ -1,52 +1,41 @@
+import Logo from "../components/Logo";
+import Button from "../components/Button";
 import { ExclamationCircleIcon } from "@heroicons/react/solid";
 import { Formik } from "formik";
 import Field from "../components/Field";
 import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 export default function Login(props) {
   const { login } = useAuth();
 
   return (
-    <Formik
-      initialValues={{ email: "", password: "" }}
-      validateOnChange={false}
-      validateOnBlur={true}
-      validate={(values) => {
-        const errors = {};
-        return errors;
-      }}
-      onSubmit={async (email, password) => {
-        try {
-          await login(email, password);
-        } catch (e) {
-          console.log(e);
-        }
-      }}
-    >
-      {({ values, errors, handleChange, handleSubmit }) => (
-        <form
-          onSubmit={handleSubmit}
-          className={
-            " border bg-gray-faint border-gray-lighter rounded-lg w-full max-w-xs shadow-outer "
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-ghost pt-20 pb-48">
+      <Link to="/">
+        <Logo />
+      </Link>
+      <h1 className="text-balck text-22 font-bold tracking-wide mt-4 mb-8">
+        Master Login
+      </h1>
+      <Formik
+        initialValues={{ email: "", password: "" }}
+        validateOnChange={false}
+        validateOnBlur={true}
+        validate={(values) => {
+          const errors = {};
+          return errors;
+        }}
+        onSubmit={async (email, password) => {
+          try {
+            await login(email, password);
+          } catch (e) {
+            console.log(e);
           }
-        >
-          <section className="flex flex-col items-center rounded-t-lg p-4">
-            <span className="text-26 mt-3">🧙</span>
-            <h2
-              className="
-                text-black
-                font-bold
-                w-full
-                text-26
-                truncate
-                rounded-md
-                text-center
-                mt-2 mb-4
-              "
-            >
-              Master Login
-            </h2>
-            <section className="w-full mt-4 space-y-2">
+        }}
+      >
+        {({ values, errors, handleChange, handleSubmit }) => (
+          <form onSubmit={handleSubmit} className={"w-56"}>
+            <section className="space-y-2 mb-4">
               <Field
                 name={"email"}
                 placeholder={"Email"}
@@ -60,38 +49,20 @@ export default function Login(props) {
                 handleChange={handleChange}
               />
             </section>
-            <button
-              onClick="handleClick"
-              type="submit"
-              className={`
-                mt-4
-                  w-full
-                  border 
-                  font-medium
-                  px-4
-                  h-9
-                  h-min
-                  box-border
-                  rounded-full
-                  hover:shadow-outer
-                border-blue 
-                hover:border-blue-dark 
-                bg-blue 
-                hover:bg-blue-dark 
-                active:text-white-blue 
-                active:bg-blue-darker 
-                text-white  
-
-                `}
-            >
-              Log In
-            </button>
-            <p className="mt-6 mb-3 text-13 text-gray ml-1 tracking-tight">
-              Only the <span className="font-bold">Master</span> can login.
-            </p>
-          </section>
-        </form>
-      )}
-    </Formik>
+            <Button
+              handleClick={handleSubmit}
+              id={"log-in"}
+              type={"submit"}
+              isPrimary={true}
+              text={"Log In"}
+              isFullWidth={true}
+            />
+          </form>
+        )}
+      </Formik>
+      <p className="mt-6 text-13 text-gray tracking-tight">
+        Only the Master can login.
+      </p>
+    </div>
   );
 }
