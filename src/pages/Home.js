@@ -13,7 +13,7 @@ export default function Home() {
   const [showingSuccessMsg, setShowingSuccessMsg] = useState(false);
   const [studies, setStudies] = useState([]);
   const [newStudy, setNewStudy] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   useEffect(() => {
     onSnapshot(collection(db, "studies"), (snapshot) => {
@@ -61,8 +61,6 @@ export default function Home() {
     <main
       className="
           text-md
-          mx-auto
-          max-w-xl
           pt-10
           pb-20
           h-full
@@ -74,11 +72,21 @@ export default function Home() {
           antialiased
         "
     >
-      <div className="max-w-xl">
+      <div className="mx-auto max-w-xl">
         <header className="flex flex-col mx-6 py-6">
-          <Link to="/">
-            <Logo />
-          </Link>
+          <section className="flex items-center justify-between">
+            <Link to="/">
+              <Logo />
+            </Link>
+            <button
+              onClick={() => setIsLoggedIn(false)}
+              className={`text-13 font-medium text-gray-light ${
+                isLoggedIn ? "block" : "hidden"
+              }`}
+            >
+              Log Out
+            </button>
+          </section>
           <h1 className="text-22 font-bold text-black tracking-wide leading-9 mt-4 ">
             Dissect Design
           </h1>
@@ -156,11 +164,6 @@ export default function Home() {
             </section>
           </section>
         </section>
-        <footer className="mx-6 mt-4">
-          <Link to="/login" className="text-13 font-medium text-gray-lightish">
-            {isLoggedIn ? "Log Out" : "Log In"}
-          </Link>
-        </footer>
       </div>
     </main>
   );

@@ -13,8 +13,10 @@ export default function AddForm(props) {
     }
     return true;
   };
+
   const doesLinkExist = (link) =>
     props.studies.find((study) => study.link === link);
+
   return (
     <Formik
       initialValues={{ title: "", link: "", adder: "" }}

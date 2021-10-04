@@ -1,10 +1,9 @@
 import Logo from "../components/Logo";
-import Button from "../components/Button";
-import { ExclamationCircleIcon } from "@heroicons/react/solid";
-import { Formik } from "formik";
 import Field from "../components/Field";
-import { useAuth } from "../context/AuthContext";
+import Button from "../components/Button";
+import { Formik } from "formik";
 import { Link } from "react-router-dom";
+import { useAuth, AuthProvider } from "../context/AuthContext";
 
 export default function Login(props) {
   const { login } = useAuth();
@@ -23,6 +22,18 @@ export default function Login(props) {
         validateOnBlur={true}
         validate={(values) => {
           const errors = {};
+          if (values.email === "") {
+            errors.email = "Gimme an email";
+          }
+          // else if () {
+          //   errors.email = "Hmmm we don't have that one. If you aren't the Master, you won't be able to login.";
+          // }
+          if (values.password === "") {
+            errors.password = "Gimme an password";
+          }
+          // else if () {
+          //   errors.password = "Hmmm we don't have that one. If you aren't the Master, you won't be able to login.";
+          // }
           return errors;
         }}
         onSubmit={async (email, password) => {
@@ -34,7 +45,7 @@ export default function Login(props) {
         }}
       >
         {({ values, errors, handleChange, handleSubmit }) => (
-          <form onSubmit={handleSubmit} className={"w-56"}>
+          <form onSubmit={handleSubmit} id="login-form" className={"w-56"}>
             <section className="space-y-2 mb-4">
               <Field
                 name={"email"}
@@ -47,6 +58,7 @@ export default function Login(props) {
                 placeholder={"Password"}
                 type={"password"}
                 handleChange={handleChange}
+                errors={errors.password}
               />
             </section>
             <Button
