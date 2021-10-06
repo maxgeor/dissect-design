@@ -52,7 +52,7 @@ export default function Home() {
       setShowingForm(false);
       setTimeout(() => {
         setNewStudy({});
-      }, 4000);
+      }, 3500);
     } catch (e) {
       console.log(e);
     }
