@@ -52,7 +52,7 @@ export default function Home() {
       setShowingForm(false);
       setTimeout(() => {
         setNewStudy({});
-      }, 3500);
+      }, 5000);
     } catch (e) {
       console.log(e);
     }
@@ -156,7 +156,7 @@ export default function Home() {
           </section>
           <section className={`${isLoggedIn && "-mt-2"}`}>
             <section
-              className={`mt-2 hidden shadow-inset py-4 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none md:rounded-lg ${
+              className={`mt-2 shadow-inset py-4 border border-gray-lighter border-opacity-80  bg-gray-ghost rounded-none md:rounded-lg ${
                 isLoggedIn ? "block" : "hidden"
               }`}
             >
@@ -166,7 +166,7 @@ export default function Home() {
                   People added new case studies today!
                 </span>
               </p>
-              <div className="pt-4 md:mx-2">
+              <div className="pt-4">
                 {studies
                   .filter((study) => !study.approved)
                   .map((study) => (

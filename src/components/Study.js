@@ -4,9 +4,9 @@ export default function Study(props) {
   return (
     // <article className="flex justify-between py-3 px-6 md:rounded-md md:px-4">
     <article
-      className={`transition-colors flex justify-between py-3 px-6 
+      className={`transition-colors duration-1000 flex justify-between py-3 px-6 
         ${!props.inContainer && "md:px-4 md:rounded"}
-        ${props.justAdded ? "duration-700 bg-green-100" : "duration-1000"}`}
+        ${props.justAdded && "bg-green-100"}`}
     >
       <a
         href={props.link}
