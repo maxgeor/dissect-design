@@ -2,11 +2,15 @@ import Logo from "../components/Logo";
 import Field from "../components/Field";
 import Button from "../components/Button";
 import { Formik } from "formik";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { useAuth, AuthProvider } from "../context/AuthContext";
 
-export default function Login(props) {
+export default function Login({ loggedIn, setLoggedIn }) {
   const { login } = useAuth();
+
+  if (loggedIn) {
+    return <Redirect to="/admin" />;
+  }
 
   return (
     <AuthProvider>

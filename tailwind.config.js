@@ -55,6 +55,9 @@ module.exports = {
       maxHeight: {
         4.5: "1.125rem",
       },
+      margin: {
+        18: "4.5rem",
+      },
     },
   },
   variants: {

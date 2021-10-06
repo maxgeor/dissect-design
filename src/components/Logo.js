@@ -4,7 +4,7 @@ export default function Logo(props) {
   return (
     <div className="p-3 -ml-3.5 -mt-3 -mb-3 flex-shrink w-min text-black hover:text-blue">
       <svg
-        className={`${props.isLoggedIn ? "h-8 w-8" : "h-9 w-9"}`}
+        className={`${props.isSmall ? "h-8 w-8" : "h-9 w-9"}`}
         width="440"
         height="440"
         viewBox="0 0 440 440"
