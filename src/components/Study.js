@@ -46,7 +46,7 @@ export default function Study(props) {
         </p>
       </a>
       <section
-        className={`text-13 -mr-2.5 ml-12 md:ml-24
+        className={`text-13 -mr-2.5 ml-10 md:ml-24
           ${props.isLoggedIn ? "block" : "hidden"}`}
       >
         <button className="-mt-1 transition-all duration-100 h-10 w-10 flex justify-center  items-center border-0 focus:border border-red-300 p-2.5 text-red-500  hover:text-red-600 focus:text-red-600 outline-none focus:ring-1 focus:ring-red-300 hover:bg-red-100 focus:bg-red-100 rounded-full cursor-pointer">
