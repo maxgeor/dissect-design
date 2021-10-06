@@ -2,12 +2,17 @@ import { FireIcon } from "@heroicons/react/solid";
 
 export default function Study(props) {
   return (
-    <article className="flex justify-between py-3 px-6 md:rounded-md md:px-4">
+    // <article className="flex justify-between py-3 px-6 md:rounded-md md:px-4">
+    <article
+      className={`transition-colors flex justify-between py-3 px-6 
+        ${!props.inContainer && "md:px-4 md:rounded"}
+        ${props.justAdded ? "duration-700 bg-green-100" : "duration-1000"}`}
+    >
       <a
         href={props.link}
         target="_blank"
         rel="noreferrer"
-        className="group h-full cursor-pointer text-gray-dark visited:text-gray"
+        className="group h-full cursor-pointer text-gray-dark visited:text-gray-light"
       >
         <div className="flex items-baseline flex-wrap">
           <p
@@ -41,9 +46,8 @@ export default function Study(props) {
         </p>
       </a>
       <section
-        className={`text-13 -mr-2.5 md:mr-0 ml-12 
-          ${props.isLoggedIn ? "block" : "hidden"}
-          ${props.inSuccessMsg && "hidden"}`}
+        className={`text-13 -mr-2.5 ml-12 md:ml-24
+          ${props.isLoggedIn ? "block" : "hidden"}`}
       >
         <button className="-mt-1 transition-all duration-100 h-10 w-10 flex justify-center  items-center border-0 focus:border border-red-300 p-2.5 text-red-500  hover:text-red-600 focus:text-red-600 outline-none focus:ring-1 focus:ring-red-300 hover:bg-red-100 focus:bg-red-100 rounded-full cursor-pointer">
           <FireIcon className="h-5 w-5 flex-shrink-0 mr-0.5 fill-current " />

@@ -52,10 +52,9 @@ export default function AddForm(props) {
         <form
           onSubmit={handleSubmit}
           id="new-study-form"
-          className={
-            "bg-gray-faint border border-gray-lighter rounded-lg w-full max-w-md shadow-outer transition-all duration-100 " +
-            (props.showingForm ? "block" : "hidden")
-          }
+          className={`bg-gray-faint border border-gray-lighter rounded-lg w-full max-w-md shadow-outer transition-all duration-100 
+            ${props.showingForm ? "block" : "hidden"}
+          `}
         >
           <section className="rounded-t-lg pt-4 px-4 space-y-2">
             <div className="mx-0.5">
@@ -108,7 +107,7 @@ export default function AddForm(props) {
             />
           </section>
           <section className="p-4 pt-2 mt-4 rounded-b-lg bg-gray-faint">
-            <p className="text-13 ml-0.5 text-gray tracking-tight mb-2.5">
+            <p className={`text-13 ml-0.5 text-gray tracking-tight mb-2.5`}>
               When you add a new case study, it'll pop to the top – watch!
             </p>
             <div className="flex space-x-1.5">

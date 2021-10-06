@@ -2,7 +2,7 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
-  darkMode: false,
+  darkMode: "media",
   theme: {
     screens: {
       sm: "425px",
@@ -11,19 +11,18 @@ module.exports = {
     colors: {
       red: colors.rose,
       "red-300": "#F9768C",
-      "red-400": "#F75F78",
+      "red-400": "#F65A74",
       green: colors.emerald,
-      // "green-500": "#04A474",
+      "green-100": "#E0FFEF",
       yellow: colors.yellow,
       "blue-lighter": "#7B9DF9",
       "blue-light": "#3166F6",
       blue: "#0A47F2",
       "blue-dark": "#093FD5",
-      purple: "#7A52FF",
       black: "#00030F",
       white: "#fff",
       "white-blue": "#F0F0FF",
-      // "gray-dark": "#20263E",
+      "gray-darker": "#1e2539",
       "gray-dark": "#242D47",
       gray: "#677396",
       "gray-light": "#8D90A0",
@@ -47,7 +46,7 @@ module.exports = {
     },
     extend: {
       boxShadow: {
-        inset: "inset 0 1px 0 rgba(0, 0, 0, 0.03)",
+        inset: "inset 0 1px 0 rgba(0, 0, 0, 0.025)",
         outer: "0 1px 0 rgba(0, 0, 0, 0.03)",
       },
       height: {

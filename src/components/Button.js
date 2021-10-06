@@ -5,6 +5,7 @@ export default function Button(props) {
       type={props.type}
       id={props.id}
       className={`
+        whitespace-nowrap
         border 
         font-medium
         text-md
@@ -27,7 +28,6 @@ export default function Button(props) {
             ? "border-blue hover:border-blue-dark bg-blue hover:bg-blue-dark focus:bg-blue-dark hover:text-white-blue focus:text-white-blue text-white"
             : "border-gray-lightish hover:bg-gray-faint focus:bg-gray-faint bg-white text-black"
         }
-
       `}
     >
       {props.text}
