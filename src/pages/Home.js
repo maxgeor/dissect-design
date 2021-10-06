@@ -61,7 +61,7 @@ export default function Home() {
     <main
       className={`
           text-md
-          ${isLoggedIn ? "pt-6 md:pt-10" : "pt-12"}
+          ${isLoggedIn ? "pt-6 md:pt-8" : "pt-12"}
           pb-20
           h-full
           min-h-screen
@@ -101,7 +101,7 @@ export default function Home() {
             </div>
             <button
               onClick={() => setIsLoggedIn(false)}
-              className={`text-13 font-medium text-gray-light ${
+              className={`text-13 font-medium text-gray ${
                 isLoggedIn ? "block" : "hidden"
               }`}
             >
@@ -122,7 +122,7 @@ export default function Home() {
           </div>
         </header>
         <section
-          className={`pt-6 mx-auto  ${
+          className={`pt-4 mx-auto  ${
             isLoggedIn
               ? "flex flex-col items-center mt-0 md:mt-4 max-w-2xl md:max-w-xl"
               : "mt-6 max-w-xl"
@@ -156,11 +156,11 @@ export default function Home() {
           </section>
           <section className={`${isLoggedIn && "-mt-2"}`}>
             <section
-              className={`mt-2 shadow-inset py-4 border border-gray-lighter border-opacity-80 bg-gray-ghost rounded-none md:rounded-lg ${
+              className={`mt-2 shadow-inset py-4 border border-gray-lighter border-opacity-90 bg-gray-ghost rounded-none md:rounded-lg ${
                 isLoggedIn ? "block" : "hidden"
               }`}
             >
-              <p className="px-6 mt-2 -ml-0.5 flex items-center text-sm font-bold text-green-500">
+              <p className="px-6 mt-2 -ml-px md:ml-0 flex items-center text-sm font-bold text-green-500">
                 <SparklesIcon className="fill-current h-4 w-4 mr-1" />
                 <span className="font-bold">
                   People added new case studies today!
@@ -185,7 +185,7 @@ export default function Home() {
                   ))}
               </div>
             </section>
-            <section className={`md:px-2 my-4`}>
+            <section className={`md:px-2 my-4 flex-col items-start`}>
               {studies.map((study) => (
                 <Study
                   key={study.id}

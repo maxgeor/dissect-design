@@ -1,10 +1,10 @@
 import { FireIcon } from "@heroicons/react/solid";
+import { collection, deleteDoc } from "@firebase/firestore";
 
 export default function Study(props) {
   return (
-    // <article className="flex justify-between py-3 px-6 md:rounded-md md:px-4">
     <article
-      className={`transition-colors duration-1000 flex justify-between py-3 px-6 
+      className={`transition-colors duration-1000 flex flex-row-reverse md:flex-row justify-start md:justify-between py-3 px-6 
         ${!props.inContainer && "md:px-4 md:rounded"}
         ${props.justAdded && "bg-green-100"}`}
     >
@@ -12,7 +12,7 @@ export default function Study(props) {
         href={props.link}
         target="_blank"
         rel="noreferrer"
-        className="group h-full cursor-pointer text-gray-dark visited:text-gray-light"
+        className="w-full group h-full cursor-pointer text-gray-dark visited:text-gray-light mr-16 md:mr-24"
       >
         <div className="flex items-baseline flex-wrap">
           <p
@@ -46,10 +46,10 @@ export default function Study(props) {
         </p>
       </a>
       <section
-        className={`text-13 -mr-2.5 ml-10 md:ml-24
+        className={`text-13 -ml-3 mr-1 md:ml-0 md:-mr-3 
           ${props.isLoggedIn ? "block" : "hidden"}`}
       >
-        <button className="-mt-1 transition-all duration-100 h-10 w-10 flex justify-center  items-center border-0 p-2.5 text-red-500 hover:text-red-600 focus:text-red-600 hover:bg-red-100 focus:bg-red-100 active:bg-red-200 rounded-full cursor-pointer">
+        <button className="-mt-1.5 md:-mt-1 transition-all duration-100 h-10 w-10 flex justify-center  items-center border-0 p-2.5 text-red-500 hover:text-red-600 focus:text-red-600 hover:bg-red-100 focus:bg-red-100 active:bg-red-200 rounded-full cursor-pointer">
           <FireIcon className="h-5 w-5 flex-shrink-0 mr-0.5 fill-current " />
         </button>
       </section>
