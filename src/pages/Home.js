@@ -110,7 +110,7 @@ export default function Home() {
           </section>
           <div className={isLoggedIn ? "hidden" : "block"}>
             <h1 className="text-22 font-bold text-black tracking-wide leading-9 mt-4">
-              {isLoggedIn ? "Welcome back, Max!" : "Dissect Design"}
+              Dissect Design
             </h1>
             <p className=" text-gray-light text-sm mb-3 italic">
               A collection of product design case studies
