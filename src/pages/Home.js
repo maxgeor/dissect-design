@@ -74,7 +74,7 @@ export default function Home() {
           dark:bg-gray-darker
         `}
     >
-      <div className={`md:mx-auto max-w-xl ${isLoggedIn && "md:max-w-2xl"}`}>
+      <div className={`md:mx-auto ${isLoggedIn ? "max-w-2xl" : "max-w-xl"}`}>
         <header
           className={`flex flex-col mx-6 ${isLoggedIn ? "py-0" : "py-6"}`}
         >
@@ -122,8 +122,10 @@ export default function Home() {
           </div>
         </header>
         <section
-          className={`pt-6 mx-auto max-w-xl ${
-            isLoggedIn ? "flex flex-col items-center mt-0 md:mt-4" : "mt-6"
+          className={`pt-6 mx-auto  ${
+            isLoggedIn
+              ? "flex flex-col items-center mt-0 md:mt-4 max-w-2xl md:max-w-xl"
+              : "mt-6 max-w-xl"
           }`}
         >
           <section
