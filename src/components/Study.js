@@ -49,7 +49,7 @@ export default function Study(props) {
         className={`text-13 -mr-2.5 ml-10 md:ml-24
           ${props.isLoggedIn ? "block" : "hidden"}`}
       >
-        <button className="-mt-1 transition-all duration-100 h-10 w-10 flex justify-center  items-center border-0 focus:border border-red-300 p-2.5 text-red-500  hover:text-red-600 focus:text-red-600 outline-none focus:ring-1 focus:ring-red-300 hover:bg-red-100 focus:bg-red-100 rounded-full cursor-pointer">
+        <button className="-mt-1 transition-all duration-100 h-10 w-10 flex justify-center  items-center border-0 p-2.5 text-red-500 hover:text-red-600 focus:text-red-600 hover:bg-red-100 focus:bg-red-100 active:bg-red-200 rounded-full cursor-pointer">
           <FireIcon className="h-5 w-5 flex-shrink-0 mr-0.5 fill-current " />
         </button>
       </section>
