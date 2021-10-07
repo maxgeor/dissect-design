@@ -43,21 +43,22 @@ export default function Home({ studies, newStudy, setNewStudy, loggedIn }) {
       console.log(e);
     }
   };
+
   return (
     <main
       className={`
-          text-md
-          pb-36
-          h-full
-          min-h-screen
-          flex-col
-          items-center
-          justify-center
-          tracking-regular
-          antialiased
-          bg-white
-          dark:bg-gray-darker
-        `}
+        text-md
+        pb-36
+        h-full
+        min-h-screen
+        flex-col
+        items-center
+        justify-center
+        tracking-regular
+        antialiased
+        bg-white
+        dark:bg-gray-darker
+      `}
     >
       <div className={`md:mx-auto max-w-xl`}>
         <header className={`flex flex-col mx-6 my-18`}>
