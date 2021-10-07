@@ -17,24 +17,18 @@ function App() {
     <AuthProvider>
       <Router>
         <Switch>
-          <Route
-            loggedIn={loggedIn}
-            setLoggedIn={setLoggedIn}
-            exact
-            path="/login"
-          >
-            <Login />
+          <Route exact path="/login">
+            <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
           </Route>
-          <Route
-            loggedIn={loggedIn}
-            setLoggedIn={setLoggedIn}
-            exact
-            path="/admin"
-          >
-            {loggedIn ? <Admin /> : <Redirect to="/" />}
+          <Route exact path="/admin">
+            {!loggedIn ? (
+              <Redirect to="/login" />
+            ) : (
+              <Admin loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+            )}
           </Route>
-          <Route loggedIn={loggedIn} setLoggedIn={setLoggedIn} path="/">
-            <Home />
+          <Route path="/">
+            <Home loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
           </Route>
         </Switch>
       </Router>

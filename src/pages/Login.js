@@ -21,6 +21,7 @@ export default function Login({ loggedIn, setLoggedIn }) {
         <h1 className="text-balck text-22 font-bold tracking-wide mt-4 mb-8">
           Master Login
         </h1>
+        {/* Here, I can have a conditional that checks what the last item in the hitory was. I it was "/admin", I can say "Login to see the dashboard." */}
         <Formik
           initialValues={{ email: "", password: "" }}
           validateOnChange={false}
