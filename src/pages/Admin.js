@@ -8,20 +8,14 @@ import { SparklesIcon } from "@heroicons/react/solid";
 import Button from "../components/Button";
 import { Link, Redirect } from "react-router-dom";
 
-export default function Admin({ loggedIn, setLoggedIn }) {
+export default function Admin({
+  loggedIn,
+  setLoggedIn,
+  studies,
+  newStudy,
+  setNewStudy,
+}) {
   const [showingForm, setShowingForm] = useState(false);
-  const [studies, setStudies] = useState([]);
-  const [newStudy, setNewStudy] = useState({});
-
-  useEffect(() => {
-    onSnapshot(collection(db, "studies"), (snapshot) => {
-      const studiesData = snapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      setStudies(studiesData.reverse());
-    });
-  }, [setStudies]);
 
   useEffect(() => {
     !loggedIn && <Redirect to="/" />;

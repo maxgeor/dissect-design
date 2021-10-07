@@ -1,26 +1,14 @@
 import Logo from "../components/Logo";
-import Study from "../components/Study";
 import AddForm from "../components/AddForm";
-import { useState, useEffect } from "react";
-import { db, auth } from "../firebase";
-import { onSnapshot, collection, addDoc } from "@firebase/firestore";
+import StudyList from "../components/StudyList";
 import Button from "../components/Button";
+import { useState } from "react";
+import { db, auth } from "../firebase";
+import { collection, addDoc } from "@firebase/firestore";
 import { Link } from "react-router-dom";
 
-export default function Home(props) {
+export default function Home({ studies, newStudy, setNewStudy, loggedIn }) {
   const [showingForm, setShowingForm] = useState(false);
-  const [studies, setStudies] = useState([]);
-  const [newStudy, setNewStudy] = useState({});
-
-  useEffect(() => {
-    onSnapshot(collection(db, "studies"), (snapshot) => {
-      const studiesData = snapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      setStudies(studiesData.reverse());
-    });
-  }, [setStudies]);
 
   const handleClick = async (e) => {
     const el = e.target;
@@ -106,18 +94,11 @@ export default function Home(props) {
             />
           </section>
           <section className={`md:px-2 my-4 flex-col items-start`}>
-            {studies.map((study) => (
-              <Study
-                key={study.id}
-                title={study.title}
-                link={study.link}
-                domain={study.domain}
-                adder={study.adder}
-                isApproved={true}
-                loggedIn={props.loggedIn}
-                justAdded={study.link === newStudy.link}
-              />
-            ))}
+            <StudyList
+              studies={studies}
+              newStudy={newStudy}
+              loggedIn={loggedIn}
+            />
           </section>
         </section>
       </div>

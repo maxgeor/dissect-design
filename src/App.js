@@ -8,10 +8,24 @@ import {
   Redirect,
 } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { db, auth } from "./firebase";
+import { onSnapshot, collection } from "@firebase/firestore";
 
-function App() {
+export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [studies, setStudies] = useState([]);
+  const [newStudy, setNewStudy] = useState({});
+
+  useEffect(() => {
+    onSnapshot(collection(db, "studies"), (snapshot) => {
+      const data = snapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setStudies(data);
+    });
+  }, [setStudies]);
 
   return (
     <AuthProvider>
@@ -24,16 +38,26 @@ function App() {
             {!loggedIn ? (
               <Redirect to="/login" />
             ) : (
-              <Admin loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+              <Admin
+                studies={studies}
+                newStudy={newStudy}
+                setNewStudy={setNewStudy}
+                loggedIn={loggedIn}
+                setLoggedIn={setLoggedIn}
+              />
             )}
           </Route>
           <Route path="/">
-            <Home loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+            <Home
+              studies={studies}
+              newStudy={newStudy}
+              setNewStudy={setNewStudy}
+              loggedIn={loggedIn}
+              setLoggedIn={setLoggedIn}
+            />
           </Route>
         </Switch>
       </Router>
     </AuthProvider>
   );
 }
-
-export default App;
