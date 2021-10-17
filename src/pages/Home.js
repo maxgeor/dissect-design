@@ -25,11 +25,10 @@ export default function Home({ studies, newStudy, setNewStudy, isLoading }) {
   }
 
   const addStudy = async (newStudy) => {
-    const timestamp = Timestamp.now().seconds;
     const payload = {
       ...newStudy,
       domain: getDomain(newStudy.link),
-      added_at: timestamp,
+      added_at: Timestamp.now(),
       approved: false,
     };
     try {
