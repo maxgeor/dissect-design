@@ -31,6 +31,7 @@ export default function Field({
           focus:border-blue-lighter
           transition-all
           duration-100
+          border-opacity-95
           ${error ? "border-red-300" : "border-gray-lighter"}
         `}
       />

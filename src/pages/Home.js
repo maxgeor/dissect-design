@@ -12,7 +12,7 @@ export default function Home() {
 
   const {studies, newStudy, setNewStudy, isLoading} = useStudies();
 
-  const handleClick = async (e) => {
+  const handleClick = (e) => {
     const el = e.target;
     if (el.id === "open-new-study-form") {
       setShowingForm(true);

@@ -8,11 +8,10 @@ import {
   Redirect,
 } from "react-router-dom";
 import AuthContextProvider, { useAuth } from "./contexts/AuthContext";
-import StudiesContextProvider, {useStudies} from "./contexts/StudiesContext";
+import StudiesContextProvider from "./contexts/StudiesContext";
 
 export default function App() {
-  const { isLoggedIn, setIsLoggedIn } = useAuth();
-  const { studies, newStudy, setNewStudy, isLoading } = useStudies();
+  const { isLoggedIn } = useAuth();
 
   return (
     <AuthContextProvider>
@@ -20,31 +19,10 @@ export default function App() {
         <Router>
           <Switch>
             <Route exact path="/login">
-              {isLoggedIn ? (
-                <Redirect to="/" />
-              ) : (
-                <Login />
-              )}
+              <Login />
             </Route>
-            <Route exact path="/">
-              {isLoggedIn ? (
-                <Admin
-                  studies={studies}
-                  newStudy={newStudy}
-                  setNewStudy={setNewStudy}
-                  isLoggedIn={isLoggedIn}
-                  setIsLoggedIn={setIsLoggedIn}
-                  isLoading={isLoading}
-                />
-              ) : (
-                <Home
-                  studies={studies}
-                  newStudy={newStudy}
-                  setNewStudy={setNewStudy}
-                  isLoading={isLoading}
-                />
-              )}
-            </Route>
+            <Route exact path="/admin" render={() => isLoggedIn ? <Admin /> : <Redirect to="/" />} />
+            <Route exact path="/" render={() => isLoggedIn ? <Redirect to="/admin" /> : <Home />} />
           </Switch>
         </Router>
       </StudiesContextProvider>

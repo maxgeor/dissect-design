@@ -4,6 +4,7 @@ import { db, onSnapshot, collection } from "../utils/firebase";
 const StudiesContext = createContext({
   studies: [],
   newStudy: null,
+  isLoading: false,
 });
 
 export const useStudies = () => useContext(StudiesContext);

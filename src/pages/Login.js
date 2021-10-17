@@ -2,19 +2,23 @@ import Logo from "../components/Logo";
 import Field from "../components/Field";
 import Button from "../components/Button";
 import { Formik } from "formik";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, Redirect } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { auth, signInWithEmailAndPassword } from "../utils/firebase";
 
 export default function Login() {
   const history = useHistory();
-  const { setIsLoggedIn } = useAuth();
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
+
+  if (isLoggedIn) {
+    return <Redirect to="/admin" />
+  }
 
   const handleLogin = async (email, password) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       setIsLoggedIn(true);
-      history.push('/');
+      history.push('/admin');
     } catch (error) {
       if (error.code === 'auth/invalid-email' || error.code === 'auth/invalid-password') {
         console.log("We couldn't find that email and password. Give it another go")

@@ -3,16 +3,19 @@ import Study from "../components/Study";
 import Button from "../components/Button";
 import AddForm from "../components/AddForm";
 import { SparklesIcon } from "@heroicons/react/solid";
-import { useState, useEffect } from "react";
-import { db, auth, collection, addDoc, deleteDoc } from "../utils/firebase";
+import { useState } from "react";
+import { db, collection, addDoc, Timestamp } from "../utils/firebase";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import { useStudies } from "../contexts/StudiesContext";
 
-export default function Admin({ studies, newStudy, setNewStudy, isLoading }) {
+export default function Admin() {
   const { setIsLoggedIn } = useAuth();
   const [showingForm, setShowingForm] = useState(false);
+  
+  const {studies, newStudy, setNewStudy, isLoading} = useStudies();
 
-  const handleClick = async (e) => {
+  const handleClick = (e) => {
     const el = e.target;
     if (el.id === "open-new-study-form") {
       setShowingForm(true);
@@ -27,12 +30,11 @@ export default function Admin({ studies, newStudy, setNewStudy, isLoading }) {
     return a.hostname;
   }
 
-  const addStudy = async (newStudy) => {
+  const addStudy = async (study) => {
     const payload = {
       ...newStudy,
       domain: getDomain(newStudy.link),
-      added_at: new Date(),
-      //make added_at a Firebase Timestamp
+      added_at: new Timestamp(),
       approved: true,
     };
     try {
