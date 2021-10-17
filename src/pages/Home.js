@@ -27,10 +27,10 @@ export default function Home() {
     return a.hostname;
   }
 
-  const addStudy = async (newStudy) => {
+  const addStudy = async (study) => {
     const payload = {
-      ...newStudy,
-      domain: getDomain(newStudy.link),
+      ...study,
+      domain: getDomain(study.link),
       added_at: Timestamp.now(),
       approved: false,
     };

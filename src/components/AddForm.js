@@ -2,8 +2,11 @@ import { ExclamationCircleIcon } from "@heroicons/react/solid";
 import { Formik } from "formik";
 import Field from "./Field";
 import Button from "./Button";
+import { useStudies } from "../contexts/StudiesContext";
 
 export default function AddForm(props) {
+  const { studies } = useStudies();
+
   const isLinkValid = (link) => {
     try {
       new URL(link);
@@ -15,7 +18,7 @@ export default function AddForm(props) {
   };
 
   const doesLinkExist = (link) =>
-    props.studies.find((study) => study.link === link);
+    studies.find((study) => study.link === link);
 
   return (
     <Formik
