@@ -1,14 +1,14 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { db, onSnapshot, collection } from "../utils/firebase";
 
-const StudyContext = createContext({
+const StudiesContext = createContext({
   studies: [],
   newStudy: null,
 });
 
-export const useStudies = () => useContext(StudyContext);
+export const useStudies = () => useContext(StudiesContext);
 
-export default function StudyContextProvider({ children }) {
+export default function StudiesContextProvider({ children }) {
   const [studies, setStudies] = useState([]);
   const [newStudy, setNewStudy] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -36,5 +36,5 @@ export default function StudyContextProvider({ children }) {
     setNewStudy,
     isLoading,
   };
-  return <StudyContext.Provider value={value}>{children}</StudyContext.Provider>;
+  return <StudiesContext.Provider value={value}>{children}</StudiesContext.Provider>;
 }

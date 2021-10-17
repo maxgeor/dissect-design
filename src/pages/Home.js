@@ -5,9 +5,12 @@ import Button from "../components/Button";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { db, collection, addDoc, Timestamp } from "../utils/firebase";
+import { useStudies } from "../contexts/StudiesContext";
 
-export default function Home({ studies, newStudy, setNewStudy, isLoading }) {
+export default function Home() {
   const [showingForm, setShowingForm] = useState(false);
+
+  const {studies, newStudy, setNewStudy, isLoading} = useStudies();
 
   const handleClick = async (e) => {
     const el = e.target;
@@ -19,7 +22,7 @@ export default function Home({ studies, newStudy, setNewStudy, isLoading }) {
   };
 
   function getDomain(link) {
-    var a = document.createElement("a");
+    const a = document.createElement("a");
     a.href = link;
     return a.hostname;
   }

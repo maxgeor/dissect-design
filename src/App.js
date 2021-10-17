@@ -7,44 +7,23 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { db, onSnapshot, collection } from "./utils/firebase";
 import AuthContextProvider, { useAuth } from "./contexts/AuthContext";
-import StudyContextProvider, {useStudies} from "./contexts/StudyContext";
-import _ from 'lodash';
+import StudiesContextProvider, {useStudies} from "./contexts/StudiesContext";
 
 export default function App() {
   const { isLoggedIn, setIsLoggedIn } = useAuth();
   const { studies, newStudy, setNewStudy, isLoading } = useStudies();
 
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   try {
-  //     onSnapshot(collection(db, "studies"), (snapshot) => {
-  //       const data = snapshot.docs.map((doc) => ({
-  //         ...doc.data(),
-  //         id: doc.id,
-  //       }));
-  //       setStudies(data);
-  //       setIsLoading(false);
-  //       // const sortedStudies = studies.sort(study => study.added_at)
-  //     });
-  //   } catch (e) {
-  //     console.log(e);
-  //     setIsLoading(false);
-  //   }
-  // }, [setStudies]);
-
   return (
     <AuthContextProvider>
-      <StudyContextProvider>
+      <StudiesContextProvider>
         <Router>
           <Switch>
             <Route exact path="/login">
               {isLoggedIn ? (
                 <Redirect to="/" />
               ) : (
-                <Login setIsLoggedIn={setIsLoggedIn} />
+                <Login />
               )}
             </Route>
             <Route exact path="/">
@@ -67,8 +46,8 @@ export default function App() {
               )}
             </Route>
           </Switch>
-        </Router>`
-      </StudyContextProvider>
+        </Router>
+      </StudiesContextProvider>
     </AuthContextProvider>
   );
 }

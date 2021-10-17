@@ -5,7 +5,6 @@ import StudiesSkeleton from "./StudiesSkeleton";
 export default function StudyList({
   studies,
   newStudy,
-  isLoggedIn,
   isLoading,
 }) {
   return (
@@ -21,7 +20,7 @@ export default function StudyList({
             link={study.link}
             domain={study.domain}
             adder={study.adder}
-            justAdded={study.link === newStudy.link}
+            justAdded={newStudy ? study.link === newStudy.link : false}
           />
         ))
       )}
