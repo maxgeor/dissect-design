@@ -1,18 +1,19 @@
 import Logo from "../components/Logo";
-import Study from "../components/Study";
+import StudyList from "../components/StudyList";
 import Button from "../components/Button";
 import AddForm from "../components/AddForm";
 import { SparklesIcon } from "@heroicons/react/solid";
 import { useState } from "react";
 import { db, collection, addDoc, Timestamp } from "../utils/firebase";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { useStudies } from "../contexts/StudiesContext";
 
+
 export default function Admin() {
+  const history = useHistory();
   const { setIsLoggedIn } = useAuth();
   const [showingForm, setShowingForm] = useState(false);
-  
   const {studies, newStudy, setNewStudy, isLoading} = useStudies();
 
   const handleClick = (e) => {
@@ -23,6 +24,11 @@ export default function Admin() {
       setShowingForm(false);
     }
   };
+
+  const logout = () => {
+    setIsLoggedIn(false);
+    history.push('/')
+  }
 
   function getDomain(link) {
     var a = document.createElement("a");
@@ -43,7 +49,7 @@ export default function Admin() {
       setShowingForm(false);
       setTimeout(() => {
         setNewStudy({});
-      }, 3000);
+      }, 4000);
     } catch (e) {
       console.log(e);
     }
@@ -66,7 +72,7 @@ export default function Admin() {
           dark:bg-gray-darker
         `}
     >
-      <div className={`md:mx-auto max-w-2xl`}>
+      <div className={`md:mx-auto max-w-3xl`}>
         <header className={`flex flex-col mx-6 my-6 md:my-9`}>
           <section className={`relative flex items-center justify-between h-9`}>
             <Link to="/">
@@ -113,37 +119,20 @@ export default function Admin() {
                 <span className="font-bold">
                   People added new case studies today!
                 </span>
-              </p>
-              <div className="">
-                {studies
-                  .filter((study) => !study.approved)
-                  .map((study) => (
-                    <Study
-                      key={study.id}
-                      title={study.title}
-                      link={study.link}
-                      domain={study.domain}
-                      adder={study.adder}
-                      added_at={study.added_at}
-                      isApproved={false}
-                      justAdded={study.link === newStudy.link}
-                      inContainer={true}
-                    />
-                  ))}
-              </div>
+              </p>        
+              <StudyList
+                studies={studies}
+                newStudy={newStudy}
+                isLoading={isLoading}
+                inContainer={true}
+              />
             </section>
             <section className={`md:px-2 my-3 flex-col items-start`}>
-              {studies.map((study) => (
-                <Study
-                  key={study.id}
-                  title={study.title}
-                  link={study.link}
-                  domain={study.domain}
-                  adder={study.adder}
-                  isApproved={true}
-                  justAdded={study.link === newStudy.link}
-                />
-              ))}
+              <StudyList
+                studies={studies}
+                newStudy={newStudy}
+                isLoading={isLoading}
+              />
             </section>
           </section>
         </section>

@@ -15,7 +15,7 @@ export default function Study(props) {
 
   return (
     <article
-      className={`transition-all duration-700 flex flex-row-reverse md:flex-row justify-start md:justify-between py-3 px-6 
+      className={`transition-all duration-700 flex flex-row-reverse md:rounded md:flex-row justify-start md:justify-between py-3 px-6 
         ${!props.inContainer && "md:px-4"}
         ${props.justAdded && "bg-green-100"}`}
     >

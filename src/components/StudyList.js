@@ -6,6 +6,7 @@ export default function StudyList({
   studies,
   newStudy,
   isLoading,
+  inContainer
 }) {
   return (
     <div>
@@ -21,6 +22,7 @@ export default function StudyList({
             domain={study.domain}
             adder={study.adder}
             justAdded={newStudy ? study.link === newStudy.link : false}
+            inContainer={inContainer}
           />
         ))
       )}

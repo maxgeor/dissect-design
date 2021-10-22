@@ -22,6 +22,8 @@ export default function StudiesContextProvider({ children }) {
           ...doc.data(),
           id: doc.id,
         }));
+        const sortedStudies = data.sort((a, b) => b.added_at - a.added_at);
+        console.log(sortedStudies);
         setStudies(data);
         setIsLoading(false);
       });

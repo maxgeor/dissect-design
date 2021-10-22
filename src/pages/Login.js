@@ -10,10 +10,6 @@ export default function Login() {
   const history = useHistory();
   const { isLoggedIn, setIsLoggedIn } = useAuth();
 
-  if (isLoggedIn) {
-    return <Redirect to="/admin" />
-  }
-
   const handleLogin = async (email, password) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);

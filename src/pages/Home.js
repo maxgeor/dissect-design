@@ -40,7 +40,7 @@ export default function Home() {
       setShowingForm(false);
       setTimeout(() => {
         setNewStudy({});
-      }, 3000);
+      }, 4000);
     } catch (e) {
       console.log(e);
     }
@@ -76,7 +76,7 @@ export default function Home() {
           <h1 className="text-22 font-bold text-black tracking-wide leading-9 mt-4">
             Dissect Design
           </h1>
-          <p className="text-gray text-sm mb-3 italic">
+          <p className="text-gray text-13 mb-3 italic">
             A collection of product design case studies
           </p>
           <p className="text-gray mr-12 md:mr-28 leading-6">
