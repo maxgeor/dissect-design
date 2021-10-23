@@ -92,7 +92,7 @@ export default function Home() {
                 id={"open-new-study-form"}
                 type={"button"}
                 isPrimary={false}
-                text={"Add a case study"}
+                text={"Sign in to add a case study"}
               />
             </div>
             <AddForm
