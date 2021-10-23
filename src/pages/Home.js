@@ -94,7 +94,6 @@ export default function Home() {
                 isPrimary={false}
                 text={"Add a case study"}
               />
-              <p className="ml-1.5 text-gray"></p>
             </div>
             <AddForm
               showingForm={showingForm}
