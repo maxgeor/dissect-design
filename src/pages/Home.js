@@ -86,7 +86,7 @@ export default function Home() {
         </header>
         <section>
           <section className={`mx-6 mb-6`}>
-            <div className={`-ml-1 flex items-center ${showingForm && "hidden"}`}>
+            <div className={`-ml-1 ${showingForm && "hidden"}`}>
               <Button
                 handleClick={handleClick}
                 id={"open-new-study-form"}
