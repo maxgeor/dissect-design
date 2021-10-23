@@ -86,14 +86,15 @@ export default function Home() {
         </header>
         <section>
           <section className={`mx-6 mb-6`}>
-            <div className={`-ml-1 ${showingForm && "hidden"}`}>
+            <div className={`-ml-1 flex items-center ${showingForm && "hidden"}`}>
               <Button
                 handleClick={handleClick}
                 id={"open-new-study-form"}
                 type={"button"}
                 isPrimary={false}
-                text={"Add a case study"}
+                text={"Sign in to add a case study"}
               />
+              <p className="ml-1.5 text-gray"></p>
             </div>
             <AddForm
               showingForm={showingForm}

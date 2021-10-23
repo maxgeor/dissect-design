@@ -23,7 +23,9 @@ export default function Study(props) {
         href={props.link}
         target="_blank"
         rel="noreferrer"
-        className="w-full group h-full cursor-pointer text-gray-dark visited:text-gray-light mr-6 md:mr-24"
+        className={`w-full group h-full cursor-pointer text-gray-dark mr-6 md:mr-24
+                  ${props.justAdded ? 'visited:text-gray-dark transition-all duration-700' : 'visited:text-gray-light'}
+        `}
       >
         <div className="flex items-baseline flex-wrap">
           <p

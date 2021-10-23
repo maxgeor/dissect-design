@@ -13,7 +13,7 @@ module.exports = {
       "red-300": "#F9768C",
       "red-400": "#F65A74",
       green: colors.emerald,
-      "green-100": "#E0FFEF",
+      "green-100": "#E5FFF2",
       "blue-lighter": "#7B9DF9",
       "blue-light": "#3166F6",
       blue: "#0A47F2",
