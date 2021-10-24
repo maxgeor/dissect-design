@@ -65,9 +65,12 @@ export default function Home() {
     >
       <div className={`md:mx-auto max-w-2xl`}>
         <header className={`flex flex-col mx-6 my-18`}>
-          <Link to="/">
-            <Logo />
-          </Link>
+          <div className="w-full flex justify-between items-center">
+            <Link to="/">
+              <Logo />
+            </Link>
+            <button className="text-gray text-13 font-medium hover:underline hover:text-black py-4">Log In</button>  
+          </div>
           <h1 className="text-22 font-bold text-black tracking-wide leading-9 mt-4">
             Dissect Design
           </h1>
