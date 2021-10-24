@@ -7,6 +7,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import ProtectedRoute from "./components/ProtectedRoute";
 import AuthContextProvider, { useAuth } from "./contexts/AuthContext";
 import StudiesContextProvider from "./contexts/StudiesContext";
 
@@ -21,7 +22,10 @@ export default function App() {
             <Route exact path="/login">
               <Login />
             </Route>
-            <Route exact path="/admin" render={() => isLoggedIn ? <Admin /> : <Redirect to="/" />} />
+            {/* <Route exact path="/admin" render={() => isLoggedIn ? <Admin /> : <Redirect to="/" />} /> */}
+            <ProtectedRoute path="/admin">
+              <Admin />
+            </ProtectedRoute>
             <Route exact path="/" render={() => isLoggedIn ? <Redirect to="/admin" /> : <Home />} />
           </Switch>
         </Router>

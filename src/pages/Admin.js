@@ -92,7 +92,7 @@ export default function Admin() {
               />
             </div>
             <button
-              onClick={() => setIsLoggedIn(false)}
+              onClick={() => logout()}
               className={`text-13 font-medium text-gray`}
             >
               Log Out
@@ -100,7 +100,7 @@ export default function Admin() {
           </section>
         </header>
         <section
-          className={`mx-auto flex flex-col items-center max-w-2xl md:max-w-xl`}
+          className={`mx-auto flex flex-col items-center max-w-2xl`}
         >
           <section className={`mx-6 mb-6 ${!showingForm && "hidden"}`}>
             <AddForm
