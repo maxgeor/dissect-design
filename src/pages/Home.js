@@ -63,11 +63,6 @@ export default function Home() {
         dark:bg-gray-darker
       `}
     >
-      <span className="absolute top-2 left-64 hidden focus:block focus:underline font-medium text-gray">
-        <Link to="/">
-          Log In
-        </Link>
-      </span>
       <div className={`md:mx-auto max-w-2xl`}>
         <header className={`flex flex-col mx-6 my-18`}>
           <Link to="/">
@@ -79,7 +74,7 @@ export default function Home() {
           <p className="text-gray text-13 mb-3 italic">
             A collection of product design case studies
           </p>
-          <p className="text-gray mr-12 md:mr-28 leading-6">
+          <p className="text-gray mr-14 md:mr-32 leading-6">
             I love case studies. Seeing the process of wrangling with a design
             problem is facinating. If you've got a good one, add it!
           </p>
