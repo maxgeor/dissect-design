@@ -1,6 +1,7 @@
 import Logo from "../components/Logo";
 import AddForm from "../components/AddForm";
 import StudyList from "../components/StudyList";
+// import SuccessCard from "../components/SuccessCard";
 import Button from "../components/Button";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -9,7 +10,7 @@ import { useStudies } from "../contexts/StudiesContext";
 
 export default function Home() {
   const [showingForm, setShowingForm] = useState(false);
-
+  // const [justAddedNewStudy, setJustAddedNewStudy] = useState(false);
   const {studies, newStudy, setNewStudy, isLoading} = useStudies();
 
   const handleClick = (e) => {
@@ -38,9 +39,7 @@ export default function Home() {
       await addDoc(collection(db, "studies"), payload);
       setNewStudy(payload);
       setShowingForm(false);
-      setTimeout(() => {
-        setNewStudy({});
-      }, 4000);
+      setJustAddedNewStudy(true);
     } catch (e) {
       console.log(e);
     }
@@ -101,6 +100,7 @@ export default function Home() {
               addStudy={addStudy}
               studies={studies}
             />
+            {/* <SuccessCard justAddedNewStudy={justAddedNewStudy} /> */}
           </section>
           <section className={`md:px-2 my-4 flex-col items-start`}>
             <StudyList

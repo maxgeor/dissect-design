@@ -21,7 +21,6 @@ export default function StudyList({
             link={study.link}
             domain={study.domain}
             adder={study.adder}
-            justAdded={newStudy ? study.link === newStudy.link : false}
             inContainer={inContainer}
           />
         ))

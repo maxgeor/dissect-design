@@ -15,17 +15,13 @@ export default function Study(props) {
 
   return (
     <article
-      className={`transition-all duration-700 flex flex-row-reverse md:rounded md:flex-row justify-start md:justify-between py-3 px-6 
-        ${!props.inContainer && "md:px-4"}
-        ${props.justAdded && "bg-green-100"}`}
+      className={`transition-all duration-700 flex flex-row-reverse md:rounded md:flex-row justify-start md:justify-between py-3 px-6 ${!props.inContainer && "md:px-4"}`}
     >
       <a
         href={props.link}
         target="_blank"
         rel="noreferrer"
-        className={`w-full group h-full cursor-pointer text-gray-dark mr-6 md:mr-24
-                  ${props.justAdded ? 'visited:text-gray-dark transition-all duration-700' : 'visited:text-gray-light'}
-        `}
+        className="w-full group h-full cursor-pointer text-gray-dark mr-6 md:mr-24"
       >
         <div className="flex items-baseline flex-wrap">
           <p

@@ -117,7 +117,7 @@ export default function Admin() {
               <p className="px-6 pb-4 md:-ml-px flex items-center text-sm font-bold text-green-500">
                 <SparklesIcon className="fill-current h-4 w-4 mr-1" />
                 <span className="font-bold">
-                  People added new case studies today!
+                  You've got new case studies to screen!
                 </span>
               </p>        
               <StudyList

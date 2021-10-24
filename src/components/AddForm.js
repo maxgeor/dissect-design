@@ -55,7 +55,7 @@ export default function AddForm(props) {
         <form
           onSubmit={handleSubmit}
           id="new-study-form"
-          className={`bg-gray-faint border border-gray-lighter border-opacity-90 shadow-outer rounded-lg w-full max-w-md transition-all duration-100 
+          className={`bg-gray-faint border border-gray-lighter shadow-outer rounded-lg w-full max-w-md transition-all duration-100 
             ${props.showingForm ? "block" : "hidden"}
           `}
         >
