@@ -108,6 +108,7 @@ export default function Home() {
               studies={studies}
               newStudy={newStudy}
               isLoading={isLoading}
+              isApprovedList={true}
             />
           </section>
         </section>

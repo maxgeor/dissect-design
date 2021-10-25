@@ -38,7 +38,7 @@ export default function Admin() {
 
   const addStudy = async (study) => {
     const payload = {
-      ...newStudy,
+      ...study,
       domain: getDomain(newStudy.link),
       added_at: new Timestamp(),
       approved: true,
@@ -125,6 +125,7 @@ export default function Admin() {
                 newStudy={newStudy}
                 isLoading={isLoading}
                 inContainer={true}
+                isApprovedList={false}
               />
             </section>
             <section className={`md:px-2 my-3 flex-col items-start`}>
@@ -132,6 +133,7 @@ export default function Admin() {
                 studies={studies}
                 newStudy={newStudy}
                 isLoading={isLoading}
+                isApprovedList={true}
               />
             </section>
           </section>

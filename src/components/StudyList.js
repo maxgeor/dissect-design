@@ -4,9 +4,9 @@ import StudiesSkeleton from "./StudiesSkeleton";
 
 export default function StudyList({
   studies,
-  newStudy,
   isLoading,
-  inContainer
+  inContainer,
+  isApprovedList
 }) {
   return (
     <div>
@@ -23,7 +23,7 @@ export default function StudyList({
             adder={study.adder}
             inContainer={inContainer}
           />
-        ))
+        )).filter(study => isApprovedList ? study.approved : !study.approved)
       )}
     </div>
   );
