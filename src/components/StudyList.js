@@ -13,7 +13,10 @@ export default function StudyList({
       {isLoading ? (
         <StudiesSkeleton />
       ) : (
-        studies.map((study) => (
+        studies
+          .filter(study => 
+            isApprovedList ? study.approved === true : study.approved === false)
+          .map((study) => (
           <Study
             key={study.id}
             id={study.id}
@@ -23,7 +26,7 @@ export default function StudyList({
             adder={study.adder}
             inContainer={inContainer}
           />
-        )).filter(study => isApprovedList ? study.approved : !study.approved)
+        ))
       )}
     </div>
   );

@@ -40,7 +40,7 @@ export default function Admin() {
     const payload = {
       ...study,
       domain: getDomain(newStudy.link),
-      added_at: new Timestamp(),
+      added_at: Timestamp.now(),
       approved: true,
     };
     try {
