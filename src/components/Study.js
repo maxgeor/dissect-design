@@ -1,5 +1,5 @@
-import { FireIcon } from "@heroicons/react/solid";
-import { db, doc, deleteDoc } from "../utils/firebase";
+import { FireIcon, ThumbUpIcon, ThumbDownIcon } from "@heroicons/react/solid";
+import { db, doc, deleteDoc, updateDoc } from "../utils/firebase";
 import { useAuth } from "../contexts/AuthContext";
 
 export default function Study(props) {
@@ -13,9 +13,17 @@ export default function Study(props) {
     }
   }
 
+  const handleApprove = async () => {
+    try {
+      await updateDoc(doc(db, 'studies', props.id), {approved: true})
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <article
-      className={`transition-all duration-700 flex flex-row-reverse md:rounded md:flex-row justify-start md:justify-between 
+      className={`transition-all duration-700 flex justify-between md:rounded
         ${!props.inContainer && !props.inSuccessCard ? 'md:px-4' : 'px-0'}
         ${props.inSuccessCard ? 'p-0' : 'py-3 px-6'}
       `}
@@ -58,12 +66,23 @@ export default function Study(props) {
         </p>
       </a>
       <section
-        className={`text-13 -ml-3 mr-2 md:ml-0 md:-mr-3 
-          ${isLoggedIn ? "block" : "hidden"}`}
+        className={`text-13 -mr-2.5 ${isLoggedIn ? "block" : "hidden"}`}
       >
-        <button onClick={handleDelete} className="-mt-1.5 md:-mt-1 transition-all duration-100 h-10 w-10 flex justify-center  items-center border-0 p-2.5 text-red-500 hover:text-red-600 focus:text-red-600 hover:bg-red-100 focus:bg-red-100 active:bg-red-200 rounded-full cursor-pointer">
-          <FireIcon className="h-5 w-5 flex-shrink-0 mr-0.5 fill-current " />
-        </button>
+        {props.approved 
+          ?
+          <button onClick={handleDelete} className="-mt-1.5 md:-mt-1 transition-all duration-100 h-10 w-10 flex justify-center items-center border-0 p-2.5 text-red-500 hover:text-red-600 focus:text-red-600 hover:bg-red-100 focus:bg-red-100 active:bg-red-200 rounded-full cursor-pointer">
+            <FireIcon className="h-5 w-5 flex-shrink-0 mr-0.5 fill-current " />
+          </button> 
+          :
+          <div className='flex items-center'>
+            <button onClick={handleApprove} className="-mt-1.5 md:-mt-1 transition-all duration-100 h-10 w-10 flex justify-center items-center border-0 p-2.5 text-gray-light  hover:text-green-600 focus:text-green-600 hover:bg-green-100 focus:bg-green-100 active:bg-green-200 rounded-full cursor-pointer">
+              <ThumbUpIcon className="h-5 w-5 flex-shrink-0 mr-0.5 fill-current " />
+            </button>
+            <button onClick={handleDelete} className="-mt-1.5 md:-mt-1 transition-all duration-100 h-10 w-10 flex justify-center items-center border-0 p-2.5 text-gray-light hover:text-red-600 focus:text-red-600 hover:bg-red-100 focus:bg-red-100 active:bg-red-200 rounded-full cursor-pointer">
+              <ThumbDownIcon className="h-5 w-5 flex-shrink-0 mr-0.5 fill-current " />
+            </button>
+          </div>
+        }
       </section>
     </article>
   );

@@ -2,7 +2,7 @@ import Logo from "../components/Logo";
 import StudyList from "../components/StudyList";
 import Button from "../components/Button";
 import AddForm from "../components/AddForm";
-import { SparklesIcon } from "@heroicons/react/solid";
+import { ClipboardListIcon } from "@heroicons/react/solid";
 import { useState } from "react";
 import { db, collection, addDoc, Timestamp } from "../utils/firebase";
 import { Link, useHistory } from "react-router-dom";
@@ -115,9 +115,9 @@ export default function Admin() {
               className={`w-full md:w-auto shadow-inset pt-6 pb-3 border border-gray-lighter border-opacity-90 bg-gray-ghost rounded-none md:rounded-lg`}
             >
               <p className="px-6 pb-4 md:-ml-px flex items-center text-sm font-bold text-green-500">
-                <SparklesIcon className="fill-current h-4 w-4 mr-1" />
+                <ClipboardListIcon className="fill-current h-4 w-4 mr-1" />
                 <span className="font-bold">
-                  You've got new case studies to screen!
+                  You've got case studies to screen!
                 </span>
               </p>        
               <StudyList
