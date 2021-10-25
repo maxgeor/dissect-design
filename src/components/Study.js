@@ -15,7 +15,10 @@ export default function Study(props) {
 
   return (
     <article
-      className={`transition-all duration-700 flex flex-row-reverse md:rounded md:flex-row justify-start md:justify-between py-3 px-6 ${!props.inContainer && "md:px-4"}`}
+      className={`transition-all duration-700 flex flex-row-reverse md:rounded md:flex-row justify-start md:justify-between 
+        ${!props.inContainer && !props.inSuccessCard ? 'md:px-4' : 'px-0'}
+        ${props.inSuccessCard ? 'p-0' : 'py-3 px-6'}
+      `}
     >
       <a
         href={props.link}

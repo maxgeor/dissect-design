@@ -11,7 +11,12 @@ export const useStudies = () => useContext(StudiesContext);
 
 export default function StudiesContextProvider({ children }) {
   const [studies, setStudies] = useState([]);
-  const [newStudy, setNewStudy] = useState(null);
+  const [newStudy, setNewStudy] = useState({
+    title: '',
+    link: '',
+    domain: '',
+    adder: ''
+  });
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {

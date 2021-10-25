@@ -1,7 +1,7 @@
 import Logo from "../components/Logo";
 import AddForm from "../components/AddForm";
 import StudyList from "../components/StudyList";
-// import SuccessCard from "../components/SuccessCard";
+import SuccessCard from "../components/SuccessCard";
 import Button from "../components/Button";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ import { useStudies } from "../contexts/StudiesContext";
 
 export default function Home() {
   const [showingForm, setShowingForm] = useState(false);
-  // const [justAddedNewStudy, setJustAddedNewStudy] = useState(false);
+  const [justAddedNewStudy, setJustAddedNewStudy] = useState(false);
   const {studies, newStudy, setNewStudy, isLoading} = useStudies();
 
   const handleClick = (e) => {
@@ -85,6 +85,7 @@ export default function Home() {
         </header>
         <section>
           <section className={`mx-6 mb-6`}>
+            <SuccessCard justAddedNewStudy={justAddedNewStudy} showingForm={showingForm} />
             <div className={`-ml-1 ${showingForm && "hidden"}`}>
               <Button
                 handleClick={handleClick}
@@ -100,7 +101,7 @@ export default function Home() {
               addStudy={addStudy}
               studies={studies}
             />
-            {/* <SuccessCard justAddedNewStudy={justAddedNewStudy} /> */}
+            
           </section>
           <section className={`md:px-2 my-4 flex-col items-start`}>
             <StudyList
