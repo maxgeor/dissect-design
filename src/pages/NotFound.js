@@ -66,7 +66,7 @@ export default function NotFound() {
             <Logo />
           </Link>
           <h1 className="text-22 font-bold text-black tracking-wide leading-9 mb-2 mt-4">
-            Hmmm, we couldn't find that page
+            Hmmm, we couldn't find that page...
           </h1>
           <p className="text-gray mr-12 md:mr-28 leading-6">
             Here are our case studies anyways.
