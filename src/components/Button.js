@@ -15,10 +15,6 @@ export default function Button(props) {
         box-border
         rounded-full
         shadow-outer
-        outline-none
-        focus:ring-1
-        focus:ring-blue-lighter
-        focus:border-blue-lighter
         active:shadow-none
         transition-all
         duration-100
