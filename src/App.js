@@ -1,6 +1,7 @@
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
+import NotFound from "./pages/NotFound";
 import {
   BrowserRouter as Router,
   Switch,
@@ -28,6 +29,7 @@ export default function App() {
                 <Admin />
               </ProtectedRoute>
               <Route exact path="/" render={() => isLoggedIn ? <Redirect to="/admin" /> : <Home />} />
+              <Route component={NotFound} />
             </Switch>
           </Router>
         </StudiesContextProvider>

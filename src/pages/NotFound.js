@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { db, collection, addDoc, Timestamp } from "../utils/firebase";
 import { useStudies } from "../contexts/StudiesContext";
 
-export default function Home() {
+export default function NotFound() {
   const [showingForm, setShowingForm] = useState(false);
   const [justAddedNewStudy, setJustAddedNewStudy] = useState(false);
   const {studies, newStudy, setNewStudy, isLoading} = useStudies();
@@ -65,15 +65,11 @@ export default function Home() {
           <Link to="/">
             <Logo />
           </Link>
-          <h1 className="text-22 font-bold text-black tracking-wide leading-9 mt-4">
-            Dissect Design
+          <h1 className="text-22 font-bold text-black tracking-wide leading-9 mb-2 mt-4">
+            Hmmm, we couldn't find that page
           </h1>
-          <p className="text-gray text-13 mb-3 italic">
-            A collection of product design case studies
-          </p>
           <p className="text-gray mr-12 md:mr-28 leading-6">
-            I love case studies. Seeing the process of wrangling with a design
-            problem is facinating. If you've got a good one, add it!
+            Here are our case studies anyways.
           </p>
         </header>
         <section>
