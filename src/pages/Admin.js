@@ -62,7 +62,6 @@ export default function Admin() {
         items-center
         justify-center
         tracking-regular
-        antialiased
         bg-white
       `}
     >

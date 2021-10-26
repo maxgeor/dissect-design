@@ -15,21 +15,23 @@ export default function App() {
   const { isLoggedIn } = useAuth();
 
   return (
-    <AuthContextProvider>
-      <StudiesContextProvider>
-        <Router>
-          <Switch>
-            <Route exact path="/login">
-              <Login />
-            </Route>
-            {/* <Route exact path="/admin" render={() => isLoggedIn ? <Admin /> : <Redirect to="/" />} /> */}
-            <ProtectedRoute path="/admin">
-              <Admin />
-            </ProtectedRoute>
-            <Route exact path="/" render={() => isLoggedIn ? <Redirect to="/admin" /> : <Home />} />
-          </Switch>
-        </Router>
-      </StudiesContextProvider>
-    </AuthContextProvider>
+    <div className="antialiased">
+      <AuthContextProvider>
+        <StudiesContextProvider>
+          <Router>
+            <Switch>
+              <Route exact path="/login">
+                <Login />
+              </Route>
+              {/* <Route exact path="/admin" render={() => isLoggedIn ? <Admin /> : <Redirect to="/" />} /> */}
+              <ProtectedRoute path="/admin">
+                <Admin />
+              </ProtectedRoute>
+              <Route exact path="/" render={() => isLoggedIn ? <Redirect to="/admin" /> : <Home />} />
+            </Switch>
+          </Router>
+        </StudiesContextProvider>
+      </AuthContextProvider>
+    </div>
   );
 }

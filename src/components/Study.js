@@ -65,7 +65,7 @@ export default function Study(props) {
           </span>
         </p>
       </a>
-      <section className={`text-13 -mr-2.5 ${isLoggedIn ? props.inSuccessCard ? "hidden" : "block" : "hidden"} `}>
+      <section className={`text-13 -mr-2.5 ${!isLoggedIn ? "hidden" : props.inSuccessCard ? "hidden" : "block"}`}>
         <button 
           onClick={deleteStudy} 
           className={`-mt-1.5 md:-mt-1 transition-all duration-100 h-10 w-10 flex justify-center items-center border-0 p-2.5 text-red-500 hover:text-red-600 focus:text-red-600 hover:bg-red-100 focus:bg-red-100 active:bg-red-200 rounded-full cursor-pointer
