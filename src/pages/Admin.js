@@ -64,7 +64,6 @@ export default function Admin() {
         tracking-regular
         antialiased
         bg-white
-        dark:bg-gray-darker
       `}
     >
       <div className={`md:mx-auto max-w-3xl`}>

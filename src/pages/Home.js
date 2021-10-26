@@ -59,7 +59,6 @@ export default function Home() {
         tracking-regular
         antialiased
         bg-white
-        dark:bg-gray-darker
       `}
     >
       <span className="absolute top-2 left-64 hidden focus:block focus:underline font-medium text-gray">

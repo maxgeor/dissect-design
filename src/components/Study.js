@@ -32,15 +32,15 @@ export default function Study(props) {
         href={props.link}
         target="_blank"
         rel="noreferrer"
-        className="w-full group h-full cursor-pointer text-gray-dark mr-6 md:mr-24"
+        className="w-full group h-full cursor-pointer text-black visited:text-gray-light mr-6 md:mr-24"
       >
         <div className="flex items-baseline flex-wrap">
           <p
             className="
             mr-1.5
             font-medium
-            group-hover:text-gray-dark
-            group-focus:text-gray-dark
+            group-hover:text-black
+            group-focus:text-black
             group-hover:underline
             group-focus:underline
           "
