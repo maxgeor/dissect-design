@@ -65,7 +65,7 @@ export default function AddForm(props) {
                 onChange={handleChange}
                 name="title"
                 type="text"
-                placeholder="Paste the title..."
+                placeholder="Give it a title..."
                 className="
                   mt-1
                   my-0.5
