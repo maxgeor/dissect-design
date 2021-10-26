@@ -43,6 +43,8 @@ export default function Study(props) {
             group-focus:text-black
             group-hover:underline
             group-focus:underline
+            leading-5
+            py-0.5
           "
           >
             {props.title}
