@@ -65,7 +65,7 @@ export default function Home() {
           <Link to="/">
             <Logo />
           </Link>
-          <h1 className="text-22 font-bold text-black tracking-wide leading-9 mt-4">
+          <h1 className="text-22 font-bold text-black tracking-wide leading-8 py-0.5 mt-4">
             Dissect Design
           </h1>
           <p className="text-gray text-13 mb-3 italic">
