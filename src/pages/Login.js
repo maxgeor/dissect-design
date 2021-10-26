@@ -2,7 +2,7 @@ import Logo from "../components/Logo";
 import Field from "../components/Field";
 import Button from "../components/Button";
 import { Formik } from "formik";
-import { Link, useHistory, Redirect } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { auth, signInWithEmailAndPassword } from "../utils/firebase";
 
@@ -27,7 +27,7 @@ export default function Login() {
       <Link to="/">
         <Logo />
       </Link>
-      <h1 className="text-black text-22 font-semibold tracking-wide mt-4 mb-8">
+      <h1 className="text-black text-22 font-bold tracking-wide mt-4 mb-8">
         Master Login
       </h1>
       <Formik
