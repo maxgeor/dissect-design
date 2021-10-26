@@ -32,7 +32,7 @@ export default function Study(props) {
         href={props.link}
         target="_blank"
         rel="noreferrer"
-        className={`w-full group h-full cursor-pointer text-black visited:text-gray-light mr-6 md:mr-24 ${props.inSuccessCard ? 'visited:text-black' : 'visited:text-gray-light'}`}
+        className={`w-full group h-full cursor-pointer text-black mr-6 md:mr-24 ${props.inSuccessCard ? 'visited:text-black' : 'visited:text-gray-light'}`}
       >
         <div className="flex items-baseline flex-wrap">
           <p
