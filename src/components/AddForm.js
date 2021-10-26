@@ -34,7 +34,7 @@ export default function AddForm(props) {
           errors.link = "You need to add a link";
         } else if (!isLinkValid(values.link)) {
           errors.link =
-            "That doesn't look like a link. Try copy & pasting it again";
+            "That doesn't look like a link. Try copy & pasting the link itself";
         } else if (doesLinkExist(values.link)) {
           errors.link = "Sorry, we already have that link. Got another?";
         }
