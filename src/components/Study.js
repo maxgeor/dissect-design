@@ -5,7 +5,7 @@ import { useAuth } from "../contexts/AuthContext";
 export default function Study(props) {
   const { isLoggedIn } = useAuth();
 
-  const handleDelete = async () => {
+  const deleteStudy = async () => {
     try {
       await deleteDoc(doc(db, 'studies', props.id))
     } catch (error) {
@@ -13,7 +13,7 @@ export default function Study(props) {
     }
   }
 
-  const handleApprove = async () => {
+  const approveStudy = async () => {
     try {
       await updateDoc(doc(db, 'studies', props.id), {approved: true})
     } catch (error) {
@@ -65,24 +65,29 @@ export default function Study(props) {
           </span>
         </p>
       </a>
-      <section
-        className={`text-13 -mr-2.5 ${isLoggedIn ? "block" : "hidden"}`}
-      >
-        {props.approved 
-          ?
-          <button onClick={handleDelete} className="-mt-1.5 md:-mt-1 transition-all duration-100 h-10 w-10 flex justify-center items-center border-0 p-2.5 text-red-500 hover:text-red-600 focus:text-red-600 hover:bg-red-100 focus:bg-red-100 active:bg-red-200 rounded-full cursor-pointer">
-            <FireIcon className="h-5 w-5 flex-shrink-0 mr-0.5 fill-current " />
-          </button> 
-          :
-          <div className='flex items-center'>
-            <button onClick={handleApprove} className="-mt-1.5 md:-mt-1 transition-all duration-100 h-10 w-10 flex justify-center items-center border-0 p-2.5 text-gray-light  hover:text-green-600 focus:text-green-600 hover:bg-green-100 focus:bg-green-100 active:bg-green-200 rounded-full cursor-pointer">
-              <ThumbUpIcon className="h-5 w-5 flex-shrink-0 mr-0.5 fill-current " />
-            </button>
-            <button onClick={handleDelete} className="-mt-1.5 md:-mt-1 transition-all duration-100 h-10 w-10 flex justify-center items-center border-0 p-2.5 text-gray-light hover:text-red-600 focus:text-red-600 hover:bg-red-100 focus:bg-red-100 active:bg-red-200 rounded-full cursor-pointer">
-              <ThumbDownIcon className="h-5 w-5 flex-shrink-0 mr-0.5 fill-current " />
-            </button>
-          </div>
-        }
+      <section className={`text-13 -mr-2.5 ${isLoggedIn ? props.inSuccessCard ? "hidden" : "block" : "hidden"} `}>
+        <button 
+          onClick={deleteStudy} 
+          className={`-mt-1.5 md:-mt-1 transition-all duration-100 h-10 w-10 flex justify-center items-center border-0 p-2.5 text-red-500 hover:text-red-600 focus:text-red-600 hover:bg-red-100 focus:bg-red-100 active:bg-red-200 rounded-full cursor-pointer
+                   ${props.approved ? 'block' : 'hidden'}
+          `}
+        >
+          <FireIcon className="h-5 w-5 flex-shrink-0 mr-0.5 fill-current" />
+        </button> 
+        <div className={`flex items-center ${props.approved ? 'hidden' : 'block'} `}>
+          <button 
+            onClick={approveStudy} 
+            className={`-mt-1.5 md:-mt-1 transition-all duration-100 h-10 w-10 flex justify-center items-center border-0 p-2.5 text-gray-light hover:text-green-600 focus:text-green-600 hover:bg-green-100 focus:bg-green-100 active:bg-green-200 rounded-full cursor-pointer`}
+          >
+            <ThumbUpIcon className="h-5 w-5 flex-shrink-0 mr-0.5 fill-current " />
+          </button>
+          <button 
+            onClick={deleteStudy} 
+            className="-mt-1.5 md:-mt-1 transition-all duration-100 h-10 w-10 flex justify-center items-center border-0 p-2.5 text-gray-light hover:text-red-600 focus:text-red-600 hover:bg-red-100 focus:bg-red-100 active:bg-red-200 rounded-full cursor-pointer"
+          >
+            <ThumbDownIcon className="h-5 w-5 flex-shrink-0 mr-0.5 fill-current " />
+          </button>
+        </div>
       </section>
     </article>
   );

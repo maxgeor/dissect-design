@@ -1,7 +1,6 @@
 import Study from "./Study";
 import { BadgeCheckIcon } from "@heroicons/react/solid";
 import { useStudies } from "../contexts/StudiesContext";
-import { useEffect } from "react";
 
 export default function SuccessCard(props) { 
   const {newStudy} = useStudies();
@@ -11,7 +10,7 @@ export default function SuccessCard(props) {
       <section className="p-4 space-y-2">
         <div className="-ml-0.5 flex items-center space-x-1">
           <BadgeCheckIcon className="h-4 w-4 fill-current text-yellow-600" />
-          <p className="font-bold text-13 text-yellow-600">In the screener</p>
+          <p className="font-bold text-sm text-yellow-600">In the screener</p>
         </div>
         <Study inSuccessCard={true} title={title} domain={domain} link={link} adder={adder} />
       </section>

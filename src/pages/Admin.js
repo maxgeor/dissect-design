@@ -9,7 +9,6 @@ import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { useStudies } from "../contexts/StudiesContext";
 
-
 export default function Admin() {
   const history = useHistory();
   const { setIsLoggedIn } = useAuth();
@@ -47,30 +46,26 @@ export default function Admin() {
       await addDoc(collection(db, "studies"), payload);
       setNewStudy(payload);
       setShowingForm(false);
-      setTimeout(() => {
-        setNewStudy({});
-      }, 4000);
     } catch (e) {
       console.log(e);
     }
   };
-
-
+  
   return (
     <main
       className={`
-          text-md
-          pb-36
-          h-full
-          min-h-screen
-          flex-col
-          items-center
-          justify-center
-          tracking-regular
-          antialiased
-          bg-white
-          dark:bg-gray-darker
-        `}
+        text-md
+        pb-36
+        h-full
+        min-h-screen
+        flex-col
+        items-center
+        justify-center
+        tracking-regular
+        antialiased
+        bg-white
+        dark:bg-gray-darker
+      `}
     >
       <div className={`md:mx-auto max-w-3xl`}>
         <header className={`flex flex-col mx-6 my-6 md:my-9`}>
@@ -112,7 +107,12 @@ export default function Admin() {
           </section>
           <section>
             <section
-              className={`w-full md:w-auto shadow-inset pt-6 pb-3 border border-gray-lighter border-opacity-90 bg-gray-ghost rounded-none md:rounded-lg`}
+              className={`w-full md:w-auto shadow-inset pt-6  border border-gray-lighter border-opacity-90 bg-gray-ghost rounded-none md:rounded-lg 
+                ${studies.filter(study => study.approved === false).length === 0
+                  ? 'pb-2'
+                  : 'pb-3'
+                }
+              `}
             >
               <p className="px-6 pb-4 md:-ml-px flex items-center text-sm font-bold text-green-500">
                 <ClipboardListIcon className="fill-current h-4 w-4 mr-1" />
