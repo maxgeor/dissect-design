@@ -107,10 +107,10 @@ export default function Admin() {
           </section>
           <section>
             <section
-              className={`w-full md:w-auto shadow-inset pt-6  border border-gray-lighter border-opacity-90 bg-gray-ghost rounded-none md:rounded-lg 
+              className={`w-full md:w-auto shadow-inset pt-6 pb-3 border border-gray-lighter border-opacity-90 bg-gray-ghost rounded-none md:rounded-lg 
                 ${studies.filter(study => study.approved === false).length === 0
-                  ? 'pb-2'
-                  : 'pb-3'
+                  ? 'hidden'
+                  : 'block'
                 }
               `}
             >
