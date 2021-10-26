@@ -69,7 +69,7 @@ export default function NotFound() {
             Hmmm, we couldn't find that page...
           </h1>
           <p className="text-gray mr-12 md:mr-28 leading-6">
-            Here are the case studies anyways.
+            Here are our case studies anyways.
           </p>
         </header>
         <section>
