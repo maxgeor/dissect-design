@@ -73,7 +73,7 @@ export default function Home() {
           </p>
           <p className="text-gray mr-12 md:mr-28 leading-6">
             I love case studies. Seeing the process of wrangling with a design
-            problem is facinating. If you've got a good one, add it!
+            problem is fascinating. If you've got a good one, add it!
           </p>
         </header>
         <section>
