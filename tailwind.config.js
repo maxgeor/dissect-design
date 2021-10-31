@@ -4,6 +4,10 @@ module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   darkMode: "media",
   theme: {
+    borderWidth: {
+      border: '1px',
+      'border-2': '2px',
+    },
     screens: {
       sm: "425px",
       md: "640px",
