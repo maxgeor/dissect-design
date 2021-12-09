@@ -13,25 +13,36 @@ module.exports = {
       md: "640px",
     },
     colors: {
-      red: colors.rose,
-      "red-300": "#F9768C",
-      "red-400": "#F65A74",
-      green: colors.emerald,
       yellow: colors.yellow,
-      "green-100": "#E5FFF2",
-      "blue-lighter": "#7B9DF9",
-      "blue-light": "#3166F6",
-      blue: "#0A47F2",
-      "blue-dark": "#093FD5",
+      red: {
+        DEFAULT: colors.rose,
+        "300": "#F9768C",
+        "400": "#F65A74",
+      },
+      green: {
+        DEFAULT: colors.emerald,
+        100: "#E5FFF2",
+      },
+      blue: {
+        dark: "#093FD5",
+        DEFAULT: "#0A47F2",
+        lighter: "#7B9DF9",
+        light: "#3166F6",
+      },
       black: "#00030F",
-      white: "#fff",
-      "white-blue": "#F0F0FF",
-      gray: "#677396",
-      "gray-light": "#888FAF",
-      "gray-lightish": "#D5D8E1",
-      "gray-lighter": "#DEE3E7",
-      "gray-faint": "#FAFAFD",
-      "gray-ghost": "#FCFBFE",
+      white: {
+        DEFAULT: "#FFFFFF",
+        blue: "#F0F0FF",
+      },
+      gray: {
+        DEFAULT: "#677396",
+        light: "#888FAF",
+        lightish: "#D5D8E1",
+        lighter: "#DEE3E7",
+        faint: "#FAFAFD",
+        ghost: "#FCFBFE",
+      }
+
     },
     fontSize: {
       xs: ["11px", "16px"],
