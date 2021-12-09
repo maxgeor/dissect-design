@@ -11,7 +11,7 @@ module.exports = {
     colors: {
       yellow: colors.yellow,
       red: {
-        DEFAULT: colors.rose,
+        ...colors.rose,
         "300": "#F9768C",
         "400": "#F65A74",
       },
