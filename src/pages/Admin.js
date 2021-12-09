@@ -113,7 +113,7 @@ export default function Admin() {
               `}
             >
               <p className="px-6 pb-4 md:-ml-px flex items-center text-sm font-bold text-green-500">
-                <ClipboardListIcon className="fill-current h-4 w-4 mr-1 trasform rotate-20" />
+                <ClipboardListIcon className="fill-current h-4 w-4 mr-1 transform rotate-20" />
                 <span className="font-bold">
                   You've got case studies to screen!
                 </span>

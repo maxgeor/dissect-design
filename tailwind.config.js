@@ -4,10 +4,6 @@ module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   darkMode: "media",
   theme: {
-    borderWidth: {
-      border: '1px',
-      'border-2': '2px',
-    },
     screens: {
       sm: "425px",
       md: "640px",
@@ -20,7 +16,7 @@ module.exports = {
         "400": "#F65A74",
       },
       green: {
-        DEFAULT: colors.emerald,
+        ...colors.emerald,
         100: "#E5FFF2",
       },
       blue: {
@@ -29,7 +25,7 @@ module.exports = {
         lighter: "#7B9DF9",
         light: "#3166F6",
       },
-      black: "#00030F",
+      black: "#010619",
       white: {
         DEFAULT: "#FFFFFF",
         blue: "#F0F0FF",
@@ -38,7 +34,7 @@ module.exports = {
         DEFAULT: "#677396",
         light: "#888FAF",
         lightish: "#D5D8E1",
-        lighter: "#DEE3E7",
+        lighter: "#E2E8EC",
         faint: "#FAFAFD",
         ghost: "#FCFBFE",
       }

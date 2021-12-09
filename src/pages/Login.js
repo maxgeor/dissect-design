@@ -8,7 +8,7 @@ import { auth, signInWithEmailAndPassword } from "../utils/firebase";
 
 export default function Login() {
   const history = useHistory();
-  const { isLoggedIn, setIsLoggedIn } = useAuth();
+  const { setIsLoggedIn } = useAuth();
 
   const handleLogin = async (email, password) => {
     try {
