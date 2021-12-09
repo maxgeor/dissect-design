@@ -58,6 +58,7 @@ export default function Home() {
         justify-center
         tracking-regular
         bg-white
+        antialiased
       `}
     >
       <div className={`md:mx-auto max-w-2xl`}>
