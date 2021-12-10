@@ -34,7 +34,7 @@ export default function Study(props) {
         rel="noreferrer"
         className={`w-full group h-full cursor-pointer text-black mr-6 md:mr-24 ${props.inSuccessCard ? 'visited:text-black' : 'visited:text-gray-light'}`}
       >
-        <div className="flex items-baseline flex-wrap">
+        <div className="flex flex-col sm:flex-row items-baseline sm:flex-wrap">
           <p
             className="
             mr-1.5
