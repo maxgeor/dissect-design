@@ -3,9 +3,11 @@ import { Formik } from "formik";
 import Field from "./Field";
 import Button from "./Button";
 import { useStudies } from "../contexts/StudiesContext";
+import { useRef, useEffect } from "react";
 
 export default function AddForm(props) {
   const { studies } = useStudies();
+  const titleInput = useRef(null);
 
   const isLinkValid = (link) => {
     try {
@@ -19,6 +21,13 @@ export default function AddForm(props) {
 
   const doesLinkExist = (link) =>
     studies.find((study) => study.link === link);
+
+
+  useEffect(() => {
+    if (props.showingForm && titleInput.current.value === "") {
+      titleInput.current.focus();
+    }
+  }, [props.showingForm]);
 
   return (
     <Formik
@@ -62,6 +71,7 @@ export default function AddForm(props) {
           <section className="rounded-t-lg pt-4 px-4 space-y-2">
             <div className="mx-0.5">
               <input
+                ref={titleInput}
                 onChange={handleChange}
                 name="title"
                 type="text"

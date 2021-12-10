@@ -9,9 +9,9 @@ import { db, collection, addDoc, Timestamp } from "../utils/firebase";
 import { useStudies } from "../contexts/StudiesContext";
 
 export default function Home() {
-  const [showingForm, setShowingForm] = useState(false);
-  const [justAddedNewStudy, setJustAddedNewStudy] = useState(false);
-  const {studies, newStudy, setNewStudy, isLoading} = useStudies();
+  const [ showingForm, setShowingForm ] = useState(false);
+  const [ justAddedNewStudy, setJustAddedNewStudy ] = useState(false);
+  const { studies, newStudy, setNewStudy, isLoading } = useStudies();
 
   const handleClick = (e) => {
     const el = e.target;
