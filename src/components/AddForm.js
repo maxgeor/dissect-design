@@ -25,7 +25,9 @@ export default function AddForm(props) {
 
   useEffect(() => {
     if (props.showingForm && titleInput.current.value === "") {
-      titleInput.current.focus();
+      setTimeout(() => {
+        titleInput.current.focus();
+      }, 85);
     }
   }, [props.showingForm]);
 
