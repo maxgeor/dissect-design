@@ -6,7 +6,7 @@ export default function SuccessCard(props) {
   const {newStudy} = useStudies();
   const {title, domain, link, adder} = newStudy;
   return (
-    <article className={`mb-4 rounded-lg border border-gray-lighter shadow-sm w-full max-w-md ${props.justAddedNewStudy ? 'block' : 'hidden'} ${props.showingForm ? 'hidden' : 'block'}`}>
+    <article className={`mb-4 rounded-lg border border-gray-lighter shadow-outer w-full max-w-md ${props.justAddedNewStudy ? 'block' : 'hidden'} ${props.showingForm ? 'hidden' : 'block'}`}>
       <section className="p-4 space-y-2">
         <div className="-ml-0.5 flex items-center space-x-1">
           <BadgeCheckIcon className="h-4 w-4 fill-current text-yellow-600" />
