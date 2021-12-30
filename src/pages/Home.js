@@ -94,6 +94,7 @@ export default function Home() {
               handleClick={handleClick}
               addStudy={addStudy}
               studies={studies}
+              isNotInAdmin={true}
             />
             
           </section>

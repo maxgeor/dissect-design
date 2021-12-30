@@ -45,7 +45,7 @@ export default function AddForm(props) {
           errors.link = "You need to add a link";
         } else if (!isLinkValid(values.link)) {
           errors.link =
-            "That doesn't look like a valid link. Try copy & pasting the link itself";
+            "That doesn't look like a valid link. Try copy & pasting it again";
         } else if (doesLinkExist(values.link)) {
           errors.link = "Sorry, we already have that link. Got another?";
         }
@@ -122,7 +122,7 @@ export default function AddForm(props) {
             />
           </section>
           <section className="p-4 pt-2 mt-4 rounded-b-lg bg-gray-faint">
-            <p className={`text-13 ml-0.5 text-gray tracking-tight mb-2.5`}>
+            <p className={`text-13 ml-0.5 text-gray tracking-tight mb-2.5 ${isNotInAdmin ? 'block' : 'hidden'}`}>
               Before your case study gets added, we'll screen it for bad stuff.
             </p>
             <div className="flex space-x-1.5">
