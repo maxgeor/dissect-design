@@ -27,7 +27,7 @@ export default function Login() {
       <Link to="/">
         <Logo />
       </Link>
-      <h1 className="text-black text-22 font-bold leading-8 py-0.5 tracking-wide mt-4 mb-8">
+      <h1 className="text-black text-22 font-bold leading-8 py-0.5 tracking-wide mt-3 mb-6">
         Master Login
       </h1>
       <Formik

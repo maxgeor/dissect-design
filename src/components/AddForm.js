@@ -122,7 +122,7 @@ export default function AddForm(props) {
             />
           </section>
           <section className="p-4 pt-2 mt-4 rounded-b-lg bg-gray-faint">
-            <p className={`text-13 ml-0.5 text-gray tracking-tight mb-2.5 ${props.isNotInAdmin ? 'block' : 'hidden'}`}>
+            <p className={`text-13 ml-0.5 text-gray tracking-tight mb-2.5 ${props.isNotInAdmin ? 'block' : 'hidden max-w-md w-full'}`}>
               Before your case study gets added, we'll screen it for bad stuff.
             </p>
             <div className="flex space-x-1.5">
