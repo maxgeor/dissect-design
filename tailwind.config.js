@@ -20,10 +20,9 @@ module.exports = {
         100: "#E5FFF2",
       },
       blue: {
-        dark: "#093FD5",
-        DEFAULT: "#0A47F2",
+        dark: "#0A47F2",
+        DEFAULT: "#3569F8",
         lighter: "#7B9DF9",
-        light: "#3166F6",
       },
       black: "#010619",
       white: {

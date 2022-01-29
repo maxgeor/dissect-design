@@ -2,7 +2,7 @@ import React from "react";
 
 export default function StudiesSkeleton() {
   return (
-    <div className="space-y-7 px-4 mt-9">
+    <div className="space-y-7 px-4 mt-9 animate-pulse">
       <article className={`w-full mr-6 md:mr-24 flex flex-col`}>
         <div className="mb-2 flex items-baseline flex-wrap space-y-2">
           <span className="h-4 mr-1.5 w-64 bg-gray-light opacity-20 rounded"></span>

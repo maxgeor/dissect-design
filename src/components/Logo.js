@@ -18,7 +18,7 @@ export default function Logo(props) {
           height="56.2208"
           rx="22"
           transform="rotate(-11.7631 52 105.1)"
-          fill="#0948F2"
+          fill="#3569F8"
         />
         <rect
           x="111.849"
