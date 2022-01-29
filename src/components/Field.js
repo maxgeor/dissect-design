@@ -26,9 +26,9 @@ export default function Field({
           truncate
           shadow-inset
           outline-none
-          focus:ring-1 focus:ring-blue-lighter
+          focus:ring-1 focus:ring-blue-light
           focus:ring-inset
-          focus:border-blue-lighter
+          focus:border-blue-light
           transition-all
           duration-100
           border-opacity-95

@@ -91,7 +91,7 @@ export default function AddForm(props) {
                   w-full
                   text-18
                   truncate
-                  border-b-2  border-gray-faint focus:border-blue-lighter
+                  border-b-2  border-gray-faint focus:border-blue-light
                   outline-none
                   transition-all
                   duration-100
