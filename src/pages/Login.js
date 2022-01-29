@@ -23,7 +23,7 @@ export default function Login() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-ghost pt-20 pb-48">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-ghost pt-18 pb-48">
       <Link to="/">
         <Logo />
       </Link>
@@ -80,7 +80,7 @@ export default function Login() {
           </form>
         )}
       </Formik>
-      <p className="mt-6 text-13 text-gray tracking-tight">
+      <p className="mt-5 text-13 text-gray tracking-tight">
         Only the Master can login.
       </p>
     </div>
