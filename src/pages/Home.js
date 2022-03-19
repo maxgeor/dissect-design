@@ -78,7 +78,7 @@ export default function Home() {
           </p>
         </header>
         <section>
-          <section className={`mx-6 mb-6`}>
+          <section className={`hidden mx-6 mb-6`}>
             <SuccessCard justAddedNewStudy={justAddedNewStudy} showingForm={showingForm} />
             <div className={`-ml-1 ${showingForm && "hidden"}`}>
               <Button
@@ -96,9 +96,8 @@ export default function Home() {
               studies={studies}
               isNotInAdmin={true}
             />
-            
           </section>
-          <section className={`md:px-2 my-4 flex-col items-start`}>
+          <section className={`md:px-2 flex-col items-start`}>
             <StudyList
               studies={studies}
               newStudy={newStudy}

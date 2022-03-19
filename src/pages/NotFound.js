@@ -69,11 +69,11 @@ export default function NotFound() {
             Hmmm, we couldn't find that page...
           </h1>
           <p className="text-gray mr-12 md:mr-28 leading-6">
-            Here's our case study collection anyways        
+            Here's the collection of case studies anyways        
           </p>
         </header>
         <section>
-          <section className={`mx-6 mb-6`}>
+          <section className={`hidden mx-6 mb-6`}>
             <SuccessCard justAddedNewStudy={justAddedNewStudy} showingForm={showingForm} />
             <div className={`-ml-1 ${showingForm && "hidden"}`}>
               <Button
@@ -92,7 +92,7 @@ export default function NotFound() {
             />
             
           </section>
-          <section className={`md:px-2 my-4 flex-col items-start`}>
+          <section className={`md:px-2 flex-col items-start`}>
             <StudyList
               studies={studies}
               newStudy={newStudy}
